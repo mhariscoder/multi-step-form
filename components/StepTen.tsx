@@ -1,5 +1,7 @@
 "use client";
+import { useState } from "react";
 import { useFormStore } from "@/store/useFormStore";
+import ResultsStep from "./ResultsStep"; // Ensure this path is correct
 import { 
   User, 
   Mail, 
@@ -7,24 +9,80 @@ import {
   Lock, 
   Sparkles, 
   ArrowLeft, 
-  Send 
+  Send,
+  Loader2 
 } from "lucide-react";
 
+// Define the interface for the product
+interface Product {
+  id: string;
+  title: string;
+  image: string | null;
+  url: string;
+  reason: string;
+  product_type: string;
+}
+
 export default function StepTen() {
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState<Product[] | null>(null);
+  
   const { 
     userName, setUserName,
     userEmail, setUserEmail,
     userZip, setUserZip,
+    coverType,
+    roomType,
+    designStyle,
+    lightPriority,
+    privacyPreference,
+    roomVibe,
     prevStep 
   } = useFormStore();
 
   const isComplete = userName && userEmail.includes('@') && userZip.length >= 5;
 
-  const handleSubmit = () => {
-    console.log("Submitting to AI engine...");
-    // Trigger your final API call here
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    const payload = {
+      coverType: coverType || "Wooden Blind",
+      color: "White",
+      room: roomType || "Living Room",
+      style: designStyle || "Modern",
+      material: "Wood",
+      lightControl: lightPriority || "Medium",
+      privacy: privacyPreference || "High",
+      budget: "200-400",
+      notes: roomVibe || "Personalized recommendation request"
+    };
+
+    try {
+      const response = await fetch("https://shopify-product-recommendation.vercel.app/api/recommendations", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch recommendations");
+
+      const recommendations = await response.json();
+      setResults(recommendations); // Save the results to trigger the UI switch
+
+    } catch (error) {
+      console.error("Submission Error:", error);
+      alert("There was an error generating your results. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
+  // IF WE HAVE RESULTS, SHOW THE RESULTS STEP
+  if (results) {
+    return <ResultsStep recommendations={results} />;
+  }
+
+  // OTHERWISE SHOW THE FORM
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
       <div className="space-y-2">
@@ -34,7 +92,6 @@ export default function StepTen() {
         </p>
       </div>
 
-      {/* AI Consultation Box */}
       <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-6 flex gap-4">
         <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm shrink-0">
           <Sparkles size={24} />
@@ -42,13 +99,11 @@ export default function StepTen() {
         <div>
           <h4 className="font-bold text-slate-900">Your AI-Powered Design Consultation</h4>
           <p className="text-sm text-slate-600 leading-relaxed">
-            Based on your preferences, our AI will generate personalized window treatment recommendations, 
-            complete with product details, style explanations, and upgrade suggestions.
+            Based on your preferences, our AI will generate personalized window treatment recommendations.
           </p>
         </div>
       </div>
 
-      {/* Form Fields */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
@@ -59,7 +114,8 @@ export default function StepTen() {
             placeholder="Enter your name"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            disabled={loading}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all disabled:opacity-50"
           />
         </div>
 
@@ -72,7 +128,8 @@ export default function StepTen() {
             placeholder="you@example.com"
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            disabled={loading}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all disabled:opacity-50"
           />
         </div>
 
@@ -85,54 +142,35 @@ export default function StepTen() {
             placeholder="12345"
             value={userZip}
             onChange={(e) => setUserZip(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            disabled={loading}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all disabled:opacity-50"
           />
         </div>
       </div>
 
-      {/* Security Note */}
-      <div className="flex gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-        <Lock size={18} className="text-slate-400 shrink-0 mt-0.5" />
-        <p className="text-xs text-slate-500 leading-relaxed">
-          Your information is secure. We'll email your results and may follow up with helpful design tips. 
-          We never share your data with third parties.
-        </p>
-      </div>
-
-      {/* Deliverables List */}
-      <div className="space-y-4">
-        <h4 className="font-bold text-slate-900 uppercase text-xs tracking-widest">What you'll receive:</h4>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
-          {[
-            "Primary product recommendation with detailed explanation",
-            "2-3 alternative options that also match your needs",
-            "Personalized upgrade suggestions (motorization, blackout, etc.)",
-            "Links to order free samples and explore products"
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Navigation */}
       <div className="flex justify-between items-center pt-8 border-t border-slate-100">
-        <button onClick={prevStep} className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors">
+        <button 
+          onClick={prevStep} 
+          disabled={loading}
+          className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors disabled:opacity-50"
+        >
           <ArrowLeft size={20} /> Back
         </button>
         
         <button 
           onClick={handleSubmit}
-          disabled={!isComplete}
+          disabled={!isComplete || loading}
           className={`px-10 py-4 rounded-xl flex items-center gap-2 font-bold transition-all ${
-            isComplete 
+            isComplete && !loading
               ? "bg-blue-600 text-white hover:bg-blue-700 shadow-xl shadow-blue-200 active:scale-95" 
               : "bg-blue-200 text-white cursor-not-allowed"
           }`}
         >
-          Get My Results <Send size={18} />
+          {loading ? (
+            <>Generating... <Loader2 size={18} className="animate-spin" /></>
+          ) : (
+            <>Get My Results <Send size={18} /></>
+          )}
         </button>
       </div>
     </div>
