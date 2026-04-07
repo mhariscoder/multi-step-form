@@ -48,12 +48,12 @@ export default function MultiStepForm() {
       <div className="flex flex-col max-w-[1520px] w-[90%]  mx-auto">
         
         {/* Stepper container - uses horizontal track logic */}
-        {/* <div className="mb-16 md:mb-24 w-full ">
+        <div className="mb-16 md:mb-24 w-full ">
           <FormStepper currentStep={step} />
-        </div> */}
+        </div>
 
         {/* Content Area */}
-        <div className="transition-all duration-500 w-full  bg-[#F3EEE7]  p-15">
+        <div className="transition-all duration-500 w-full  bg-[#F3EEE7]  p-6 md:p-15">
           {renderStep()}
           <p className="text-center mt-5 text-[13px] sm:text-[14px] md:text-[16px] text-[#727272] text-font ">
         Your info is secure | No spam | We never share your details

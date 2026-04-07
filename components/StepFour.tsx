@@ -26,7 +26,7 @@ export default function StepFour() {
   const { designStyle, setDesignStyle, nextStep, prevStep } = useFormStore();
 
   return (
-    <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
         <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
           Which style feels closest to your room?

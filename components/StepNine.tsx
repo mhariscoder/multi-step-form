@@ -18,8 +18,8 @@ type QuestionRowProps = {
 function QuestionRow({ icon: Icon, title, options, currentValue, onSelect }: QuestionRowProps) {
   return (
     <div className="bg-[#F7F4EF] p-8  border border-transparent hover:border-[#D1C7B7]/30 transition-all space-y-6">
-      <div className="flex items-center gap-4">
-        <div className="h-[50px] w-[50px] bg-[#0F172A] text-white rounded-full flex items-center justify-center">
+      <div className="flex md:items-center items-start  gap-4">
+        <div className="md:h-[50px] p-2 md:p-0 md:w-[50px] bg-[#0F172A] text-white rounded-full flex items-center justify-center">
           <Icon size={18} />
         </div>
         <h3 className="text-[22px] sm:text-[26px] md:text-[32px] heading-font text-[#1A1A1A] leading-[1.1]">{title}</h3>
@@ -62,7 +62,7 @@ export default function StepNine() {
   const isComplete = hasChildrenPets && interestedInMotorization && interestedInLayering;
 
   return (
-    <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
         <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
           A few practical questions

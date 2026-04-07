@@ -27,7 +27,7 @@ export default function StepFive() {
   const { privacyPreference, setPrivacyPreference, nextStep, prevStep } = useFormStore();
 
   return (
-    <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
         <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">Privacy vs. View</h1>
         <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
@@ -53,7 +53,7 @@ export default function StepFive() {
               <div className="flex items-center mb-6   gap-5 ">
 
               <div
-                className={`rounded-full  h-[50px] w-[50px] flex items-center justify-center ${
+                className={`rounded-full  md:h-[50px] p-2 md:p-0 md:w-[50px] flex items-center justify-center ${
                   isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"
                 }`}
               >

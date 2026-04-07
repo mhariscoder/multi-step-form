@@ -27,7 +27,7 @@ export default function StepOne() {
   ];
 
   return (
-    <div className="w-full flex flex-col md:gap-18  animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18   gap-10   gap-10  animate-in fade-in duration-700">
       
       {/* Header Section */}
       <header className="space-y-4">
@@ -54,7 +54,7 @@ export default function StepOne() {
         />
 
         {/* Icon Container - Navy Blue #0D1B2A */}
-        <div className="bg-[#0D1B2A] p-5 h-[100px] w-[100px] flex items-center justify-center rounded-full mb-8 shadow-md">
+        <div className="bg-[#0D1B2A] p-5 md:h-[100px] md:w-[100px]   flex items-center justify-center rounded-full mb-8 shadow-md">
           <svg width="42" height="38" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M4.16667 4.16667H10.4167L14.5833 0H27.0833L31.25 4.16667H37.5C38.6051 4.16667 39.6649 4.60565 40.4463 5.38705C41.2277 6.16846 41.6667 7.22826 41.6667 8.33333V33.3333C41.6667 34.4384 41.2277 35.4982 40.4463 36.2796C39.6649 37.061 38.6051 37.5 37.5 37.5H4.16667C3.0616 37.5 2.00179 37.061 1.22039 36.2796C0.438987 35.4982 0 34.4384 0 33.3333V8.33333C0 7.22826 0.438987 6.16846 1.22039 5.38705C2.00179 4.60565 3.0616 4.16667 4.16667 4.16667ZM20.8333 10.4167C18.0707 10.4167 15.4211 11.5141 13.4676 13.4676C11.5141 15.4211 10.4167 18.0707 10.4167 20.8333C10.4167 23.596 11.5141 26.2455 13.4676 28.199C15.4211 30.1525 18.0707 31.25 20.8333 31.25C23.596 31.25 26.2455 30.1525 28.199 28.199C30.1525 26.2455 31.25 23.596 31.25 20.8333C31.25 18.0707 30.1525 15.4211 28.199 13.4676C26.2455 11.5141 23.596 10.4167 20.8333 10.4167ZM20.8333 14.5833C22.4909 14.5833 24.0807 15.2418 25.2528 16.4139C26.4249 17.586 27.0833 19.1757 27.0833 20.8333C27.0833 22.4909 26.4249 24.0806 25.2528 25.2528C24.0807 26.4249 22.4909 27.0833 20.8333 27.0833C19.1757 27.0833 17.586 26.4249 16.4139 25.2528C15.2418 24.0806 14.5833 22.4909 14.5833 20.8333C14.5833 19.1757 15.2418 17.586 16.4139 16.4139C17.586 15.2418 19.1757 14.5833 20.8333 14.5833Z" fill="white"/>
 </svg>
@@ -62,12 +62,12 @@ export default function StepOne() {
         </div>
 
         <h2 className="text-[24px] sm:text-[28px] md:text-[32px] heading-font text-[#1A1A1A] mb-2">Drop Your Photo Here</h2>
-        <p className="text-center text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] text-font max-w-[649px] mb-10 leading-relaxed">
+        <p className="text-center text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] text-font px-3 max-w-[649px] mb-10 leading-relaxed">
           Upload a photo of your room and our AI will analyze features to personalize your recommendations.
         </p>
 
         {/* Action Buttons */}
-        <div className="flex gap-4 text-[14px] relative z-20">
+        <div className="flex flex-col md:flex-row gap-4 text-[14px] relative z-20">
           <button 
             type="button"
             onClick={(e) => { e.stopPropagation(); fileInputRef.current?.click(); }}

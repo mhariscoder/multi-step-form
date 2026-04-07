@@ -73,7 +73,7 @@ export default function StepTen() {
   }
 
   return (
-    <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
         <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
           Almost there! Get your personalized results
@@ -85,7 +85,7 @@ export default function StepTen() {
 
       <div className="bg-[#E5D5BC]  p-10 flex flex-col  gap-5 ">
 
-        <div className="flex gap-3 items-center">
+        <div className="flex flex-col md:flex-row gap-3 md:items-center">
           <div className="w-[50px] h-[50px] bg-[#BC9661] rounded-full flex items-center justify-center text-white shadow-md shrink-0">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_351_2820)">
