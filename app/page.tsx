@@ -12,7 +12,7 @@ import StepSeven from "@/components/StepSeven";
 import StepEight from "@/components/StepEight";
 import StepNine from "@/components/StepNine";
 import StepTen from "@/components/StepTen";
-
+import Header from "@/components/header";
 export default function MultiStepForm() {
   const step = useFormStore((state) => state.step);
   const [isClient, setIsClient] = useState(false);
@@ -42,16 +42,17 @@ export default function MultiStepForm() {
   return (
     // Changed bg to #FBF9F6 to match the "Let's Start with Your Room" background
     <main className="min-h-screen bg-[#FBF9F6] py-12 ">
+      <Header/>
       {/* Removed max-width constraint for true full-width layout */}
-      <div className="w-full flex flex-col max-w-[1520px]  mx-auto">
+      <div className="w-full flex flex-col max-w-[1520px]   mx-auto">
         
         {/* Stepper container - uses horizontal track logic */}
-        <div className="mb-16 md:mb-24 w-full">
+        <div className="mb-16 md:mb-24 w-full border">
           <FormStepper currentStep={step} />
         </div>
 
         {/* Content Area */}
-        <div className="transition-all duration-500 w-full bg-[#F3EEE7]  p-24">
+        <div className="transition-all duration-500 w-full border bg-[#F3EEE7]  p-15">
           {renderStep()}
         </div>
       </div>
