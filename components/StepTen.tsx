@@ -158,7 +158,7 @@ export default function StepTen() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
+      <div className="flex flex-col md:flex-row gap-4 pt-4 ">
         <button
           onClick={prevStep}
           disabled={loading}

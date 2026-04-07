@@ -38,7 +38,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
             className="flex flex-col md:flex-row bg-[#FBF9F6] border border-transparent hover:border-[#D1C7B7]/30 transition-all overflow-hidden rounded-sm"
           >
             {/* Product Image Section */}
-            <div className="w-full md:w-1/3 aspect-square bg-[#E8E8E8] relative overflow-hidden">
+            <div className="w-full md:max-w-[257px]  max-h-[257px]   md:w-1/3 aspect-square bg-[#E8E8E8] relative overflow-hidden">
               <img 
                 src={product.image || "https://placehold.co/600x600?text=Product+Image"} 
                 alt={product.title}
@@ -47,7 +47,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
             </div>
 
             {/* Product Content Section */}
-            <div className="flex-1 p-8 flex flex-col justify-center space-y-4">
+            <div className="flex-1 xl:ml-5  p-3 max-w-3xl xl:max-w-[993px] flex min-[180px]  my-auto flex-col justify-center space-y-4">
               <h3 className="text-[32px] font-serif text-[#1A1A1A] leading-tight">
                 {product.title}
               </h3>
@@ -63,11 +63,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
                 href={product.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`w-full py-4 rounded-full text-[14px] font-sans font-bold text-center transition-all border ${
-                  index === 0 
-                    ? "bg-[#BC9661] text-white border-[#BC9661] hover:brightness-105" 
-                    : "bg-white text-[#1A1A1A] border-[#1A1A1A] hover:bg-black hover:text-white"
-                }`}
+                className={`w-full rounded-full hover:bg-[#BC9661] items-center flex justify-center h-[48px] hover:text-white bg-white text-[14px] font-sans font-bold text-center transition-all border `}
               >
                 View Product
               </a>
@@ -77,7 +73,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
       </div>
 
       {/* Footer Navigation */}
-      <div className="flex flex-col gap-4 pt-8 border-t border-[#D1C7B7]/30">
+      <div className="flex flex-col gap-4 pt-8 ">
         <button 
           onClick={handleRestart}
           className="w-full py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-[#FBF9F6] transition-all text-center uppercase tracking-widest"

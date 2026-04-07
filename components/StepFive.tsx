@@ -50,18 +50,21 @@ export default function StepFive() {
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
               } ${index === 2 ? "md:col-span-2" : "md:col-span-1"}`}
             >
+              <div className="flex items-center mb-6   gap-5 ">
+
               <div
-                className={`rounded-full mb-6 h-[50px] w-[50px] flex items-center justify-center ${
+                className={`rounded-full  h-[50px] w-[50px] flex items-center justify-center ${
                   isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"
                 }`}
               >
-                <Icon size={18} />
+                <Icon size={20} />
               </div>
 
-              <h3 className={`text-[32px] font-serif mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+              <h3 className={`text-[32px] font-serif  leading-[59px] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                 {pref.title}
               </h3>
-
+                 
+ </div>
               <p className={`text-[18px] leading-[20px] font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                 {pref.desc}
               </p>
@@ -70,7 +73,7 @@ export default function StepFive() {
         })}
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
+      <div className="flex flex-col md:flex-row gap-4 pt-4 ">
         <button
           onClick={prevStep}
           className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-[700] hover:bg-white/50 transition-all text-center"

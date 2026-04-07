@@ -132,7 +132,7 @@ export default function StepThree() {
       </div>
 
       {/* Footer Navigation */}
-      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
+      <div className="flex flex-col md:flex-row gap-4 pt-4 ">
         <button 
           onClick={prevStep}
           className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center"

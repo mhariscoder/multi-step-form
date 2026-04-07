@@ -27,7 +27,7 @@ export default function StepOne() {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-10  animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18  animate-in fade-in duration-700">
       
       {/* Header Section */}
       <header className="space-y-4">
