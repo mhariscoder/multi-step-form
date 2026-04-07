@@ -45,17 +45,17 @@ export default function MultiStepForm() {
     <Header/>
     <main className="min-h-screen bg-[#FBF9F6] py-12 ">
       {/* Removed max-width constraint for true full-width layout */}
-      <div className="w-full flex flex-col max-w-[1520px]   mx-auto">
+      <div className="flex flex-col max-w-[1520px] w-[90%]  mx-auto">
         
         {/* Stepper container - uses horizontal track logic */}
-        <div className="mb-16 md:mb-24 w-full ">
+        {/* <div className="mb-16 md:mb-24 w-full ">
           <FormStepper currentStep={step} />
-        </div>
+        </div> */}
 
         {/* Content Area */}
         <div className="transition-all duration-500 w-full  bg-[#F3EEE7]  p-15">
           {renderStep()}
-          <p className="text-center mt-5 text-[16px] text-[#727272] text-font ">
+          <p className="text-center mt-5 text-[13px] sm:text-[14px] md:text-[16px] text-[#727272] text-font ">
         Your info is secure | No spam | We never share your details
       </p>
         </div>

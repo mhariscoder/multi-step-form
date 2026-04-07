@@ -27,7 +27,7 @@ export const FormStepper = ({ currentStep }: { currentStep: number }) => {
       <div key={s} className="z-10 flex flex-col items-center">
         <div
           className={cn(
-            "w-[70px] h-[70px] rounded-full heading-font flex items-center justify-center text-[32px] font-serif transition-all duration-500",
+            "w-[56px] h-[56px] md:w-[70px] md:h-[70px] rounded-full heading-font flex items-center justify-center text-[22px] sm:text-[26px] md:text-[32px] transition-all duration-500",
             s === currentStep
               ? "bg-[#C19A5B] text-white"
               : s < currentStep

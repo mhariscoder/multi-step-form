@@ -54,10 +54,10 @@ export default function StepEight() {
   return (
     <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[48px] heading-font text-[#1A1A1A] leading-[59px]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
           What vibe are you going for?
         </h1>
-        <p className="text-[#8E8E8E] text-[20px] leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
           The feeling you want your room to evoke helps us perfect your recommendation.
         </p>
       </header>
@@ -85,11 +85,11 @@ export default function StepEight() {
                 <Icon size={18} />
               </div>
 
-              <h3 className={`text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+              <h3 className={`text-[24px] sm:text-[28px] md:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                 {vibe.title}
               </h3>
 
-              <p className={`text-[18px] leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+              <p className={`text-[15px] sm:text-[17px] md:text-[18px] leading-[1.45] md:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                 {vibe.desc}
               </p>
             </button>
@@ -108,7 +108,7 @@ export default function StepEight() {
         <button
           onClick={nextStep}
           disabled={!roomVibe}
-          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] text-font transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm ${
             roomVibe ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >

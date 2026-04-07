@@ -22,7 +22,7 @@ function QuestionRow({ icon: Icon, title, options, currentValue, onSelect }: Que
         <div className="h-[50px] w-[50px] bg-[#0F172A] text-white rounded-full flex items-center justify-center">
           <Icon size={18} />
         </div>
-        <h3 className="text-[32px] heading-font text-[#1A1A1A] leading-[1.1]">{title}</h3>
+        <h3 className="text-[22px] sm:text-[26px] md:text-[32px] heading-font text-[#1A1A1A] leading-[1.1]">{title}</h3>
       </div>
 
       <div className="flex flex-wrap gap-4">
@@ -32,7 +32,7 @@ function QuestionRow({ icon: Icon, title, options, currentValue, onSelect }: Que
             <button
               key={opt.value}
               onClick={() => onSelect(opt.value)}
-              className={`px-8 py-3 rounded-full border md:min-w-[284px] text-[14px] font-[700] text-font transition-all duration-300 ${
+              className={`px-8 py-3 rounded-full border md:min-w-[284px] text-[13px] md:text-[14px] font-[700] text-font transition-all duration-300 ${
                 isSelected
                   ? "bg-[#BC9661] border-[#BC9661] text-white shadow-md active:scale-95"
                   : "bg-white border-[#D1C7B7] text-[#1A1A1A] hover:border-[#1A1A1A]"
@@ -64,10 +64,10 @@ export default function StepNine() {
   return (
     <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[48px] heading-font text-[#1A1A1A] leading-[59px]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
           A few practical questions
         </h1>
-        <p className="text-[#8E8E8E] text-[20px] leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
           These help us recommend the safest and most convenient options for your lifestyle.
         </p>
       </header>
@@ -120,7 +120,7 @@ export default function StepNine() {
         <button
           onClick={nextStep}
           disabled={!isComplete}
-          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] text-font transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm ${
             isComplete ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
