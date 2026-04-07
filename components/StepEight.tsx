@@ -62,7 +62,7 @@ export default function StepEight() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {VIBES.map((vibe) => {
           const Icon = vibe.icon;
           const isSelected = roomVibe === vibe.id;
@@ -71,7 +71,7 @@ export default function StepEight() {
             <button
               key={vibe.id}
               onClick={() => setRoomVibe(vibe.id)}
-              className={`flex flex-col items-start p-8 rounded-sm transition-all text-left border min-h-[235px] ${
+              className={`flex flex-col items-start p-8  transition-all text-left border min-h-[235px] ${
                 isSelected
                   ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl z-10 scale-[1.02]"
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
@@ -116,9 +116,9 @@ export default function StepEight() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+      {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

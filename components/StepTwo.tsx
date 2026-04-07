@@ -27,7 +27,7 @@ export default function StepTwo() {
       </header>
 
       {/* Options Grid */}
-     <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-6">
+     <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-5">
   {OPTIONS.map((opt, index) => {
     const Icon = opt.icon;
     const isSelected = coverType === opt.id;
@@ -37,7 +37,7 @@ export default function StepTwo() {
       <button
         key={opt.id}
         onClick={() => setCoverType(opt.id)}
-        className={`flex flex-col items-start p-8 rounded-sm transition-all text-left min-h-[235px] relative
+        className={` flex flex-col items-start p-8  transition-all text-left min-h-[235px] relative
           ${isSelected
             ? "bg-[#0F172A] text-white shadow-xl scale-[1.02] z-10"
             : "bg-[#FBF9F6] text-[#1A1A1A] hover:bg-white hover:shadow-md border border-transparent"
@@ -94,9 +94,9 @@ export default function StepTwo() {
       </div>
 
       {/* Security Disclaimer */}
-      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+      {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

@@ -55,13 +55,16 @@ export default function MultiStepForm() {
         {/* Content Area */}
         <div className="transition-all duration-500 w-full  bg-[#F3EEE7]  p-15">
           {renderStep()}
+          <p className="text-center mt-5 text-[16px] text-[#727272] text-font ">
+        Your info is secure | No spam | We never share your details
+      </p>
         </div>
       </div>
 
       {/* Optional: Add the secure info footer globally if not in sub-components */}
-      <footer className="mt-12 text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase">
+      {/* <footer className="mt-12 text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase">
         Your info is secure · No spam · We never share your details
-      </footer>
+      </footer> */}
     </main>
   </>
   );

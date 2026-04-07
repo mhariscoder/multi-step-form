@@ -49,7 +49,7 @@ export default function StepSix() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
         {PRIORITIES.map((item, index) => {
           const Icon = item.icon;
           const isSelected = lightPriority === item.id;
@@ -59,7 +59,7 @@ export default function StepSix() {
             <button
               key={item.id}
               onClick={() => setLightPriority(item.id)}
-              className={`flex flex-col items-start p-8 rounded-sm transition-all text-left border min-h-[235px] ${gridSpan} ${
+              className={`flex flex-col items-start p-8  transition-all text-left border min-h-[235px] ${gridSpan} ${
                 isSelected
                   ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl scale-[1.02] z-10"
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
@@ -104,9 +104,9 @@ export default function StepSix() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+      {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

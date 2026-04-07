@@ -17,7 +17,7 @@ type QuestionRowProps = {
 
 function QuestionRow({ icon: Icon, title, options, currentValue, onSelect }: QuestionRowProps) {
   return (
-    <div className="bg-[#F7F4EF] p-8 rounded-sm border border-transparent hover:border-[#D1C7B7]/30 transition-all space-y-6">
+    <div className="bg-[#F7F4EF] p-8  border border-transparent hover:border-[#D1C7B7]/30 transition-all space-y-6">
       <div className="flex items-center gap-4">
         <div className="h-[50px] w-[50px] bg-[#0F172A] text-white rounded-full flex items-center justify-center">
           <Icon size={18} />
@@ -128,9 +128,9 @@ export default function StepNine() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+      {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

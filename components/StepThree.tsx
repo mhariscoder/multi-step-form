@@ -58,7 +58,7 @@ export default function StepThree() {
               <button
                 key={item.id}
                 onClick={() => setRoomType(item.id)}
-                className={`flex flex-col items-center min-h-[120px] justify-center p-6 rounded-sm transition-all gap-4 border
+                className={`flex flex-col items-center min-h-[120px] justify-center p-6  transition-all gap-4 border
                   ${isSelected 
                     ? "bg-[#0F172A] border-[#0F172A] text-white shadow-md" 
                     : "bg-[#FBF9F6] border-transparent text-[#8E8E8E] hover:bg-white hover:border-[#D1C7B7]"
@@ -82,7 +82,7 @@ export default function StepThree() {
         <h3 className="text-[32px] heading-font text-[#1A1A1A]">
           Primary use of this space? <span className="text-[#BC9661] ml-1">*</span>
         </h3>
-     <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+     <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
   {USAGE_TYPES.map((item, index) => {
     const Icon = item.icon;
     const isSelected = roomUsage === item.id;
@@ -92,7 +92,7 @@ export default function StepThree() {
       <button
         key={item.id}
         onClick={() => setRoomUsage(item.id)}
-        className={`flex flex-col items-start p-8 rounded-sm transition-all md:min-h-[225px] text-left gap-4 border
+        className={`flex flex-col items-start p-8  transition-all md:min-h-[225px] text-left gap-4 border
           ${isBottomRow ? "md:col-span-3" : "md:col-span-2"}
           ${
             isSelected
@@ -151,9 +151,9 @@ export default function StepThree() {
         </button>
       </div>
 
-      <p className="text-center text-[11px] text-[#A0A0A0] text-font tracking-wide">
+      {/* <p className="text-center text-[11px] text-[#A0A0A0] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

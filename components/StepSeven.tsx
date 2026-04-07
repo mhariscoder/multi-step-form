@@ -69,7 +69,7 @@ export default function StepSeven() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {LOOKS.map((look, index) => {
           const Icon = look.icon;
           const isSelected = lookPreference === look.id;
@@ -79,7 +79,7 @@ export default function StepSeven() {
             <button
               key={look.id}
               onClick={() => setLookPreference(look.id)}
-              className={`flex flex-col items-start p-8 rounded-sm transition-all text-left border min-h-[235px] ${
+              className={`flex flex-col items-start p-8  transition-all text-left border min-h-[235px] ${
                 isLastItem ? "md:col-span-3 min-h-[170px]" : "md:col-span-1"
               } ${
                 isSelected
@@ -128,9 +128,9 @@ export default function StepSeven() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+      {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

@@ -83,7 +83,7 @@ export default function StepTen() {
         </p>
       </header>
 
-      <div className="bg-[#E5D5BC] rounded-sm p-10 flex flex-col  gap-5 border-l-4 border-[#BC9661]">
+      <div className="bg-[#E5D5BC]  p-10 flex flex-col  gap-5 ">
 
         <div className="flex gap-3 items-center">
           <div className="w-[50px] h-[50px] bg-[#BC9661] rounded-full flex items-center justify-center text-white shadow-md shrink-0">
@@ -115,7 +115,7 @@ export default function StepTen() {
         </div>
       </div>
 
-      <div className="bg-[#FBF9F6] p-10 rounded-sm space-y-8">
+      <div className="bg-[#FBF9F6] p-10  space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-3">
             <input
@@ -124,7 +124,7 @@ export default function StepTen() {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               disabled={loading}
-              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
+              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0]  focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
             />
           </div>
 
@@ -135,7 +135,7 @@ export default function StepTen() {
               value={userZip}
               onChange={(e) => setUserZip(e.target.value)}
               disabled={loading}
-              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
+              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0]  focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function StepTen() {
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
             disabled={loading}
-            className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
+            className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0]  focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
           />
         </div>
       </div>
@@ -182,10 +182,10 @@ export default function StepTen() {
           )}
         </button>
       </div>
-
+{/* 
       <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

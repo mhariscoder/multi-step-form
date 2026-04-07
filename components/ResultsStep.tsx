@@ -35,7 +35,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
         {recommendations.map((product, index) => (
           <div 
             key={product.id} 
-            className="flex flex-col md:flex-row bg-[#FBF9F6] border border-transparent hover:border-[#D1C7B7]/30 transition-all overflow-hidden rounded-sm"
+            className="flex flex-col md:flex-row bg-[#FBF9F6] border border-transparent hover:border-[#D1C7B7]/30 transition-all overflow-hidden "
           >
             {/* Product Image Section */}
             <div className="w-full md:max-w-[257px]  max-h-[257px]   md:w-1/3 aspect-square bg-[#E8E8E8] relative overflow-hidden">

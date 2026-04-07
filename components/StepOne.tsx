@@ -41,7 +41,7 @@ export default function StepOne() {
 
       {/* Upload Dropzone */}
       <div 
-        className={`relative border border-dashed bg-[#F7F4EF] rounded-sm py-40 md:min-h-[541px] flex flex-col items-center justify-center transition-all
+        className={`relative border border-dashed bg-[#F7F4EF]  py-40 md:min-h-[541px] flex flex-col items-center justify-center transition-all
           ${dragActive ? 'border-[#BC9661] bg-white/30' : 'border-[#D1C7B7]'}`}
         onDragOver={(e) => { e.preventDefault(); setDragActive(true); }}
         onDragLeave={() => setDragActive(false)}
@@ -90,7 +90,7 @@ export default function StepOne() {
       </div>
 
       {/* Info Section Box - Soft Cream #FBF9F6 */}
-      <div className="bg-[#FBF9F6] p-12 rounded-sm border border-[#F0EDE6]">
+      <div className="bg-[#FBF9F6] p-12  border border-[#F0EDE6]">
         <h3 className="text-[32px] heading-font text-[#1A1A1A] mb-8">What Our AI Looks For:</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-4">
           {infoItems.map((item, idx) => (
@@ -112,9 +112,9 @@ export default function StepOne() {
           Next
         </button>
 
-        <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+        {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
           Your info is secure | No spam | We never share your details
-        </p>
+        </p> */}
       </div>
     </div>
   );

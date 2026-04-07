@@ -35,7 +35,7 @@ export default function StepFive() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {PREFERENCES.map((pref, index) => {
           const Icon = pref.icon;
           const isSelected = privacyPreference === pref.id;
@@ -44,7 +44,7 @@ export default function StepFive() {
             <button
               key={pref.id}
               onClick={() => setPrivacyPreference(pref.id)}
-              className={`flex flex-col items-start p-8 justify-center rounded-sm transition-all text-left border border min-h-[150px] ${
+              className={`flex flex-col items-start p-8 justify-center  transition-all text-left border border min-h-[150px] ${
                 isSelected
                   ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl z-10"
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
@@ -92,9 +92,9 @@ export default function StepFive() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+      {/* <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
-      </p>
+      </p> */}
     </div>
   );
 }

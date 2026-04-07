@@ -9,39 +9,37 @@ export const FormStepper = ({ currentStep }: { currentStep: number }) => {
   const steps = Array.from({ length: 10 }, (_, i) => i + 1);
 
   return (
-    <div className="relative flex items-center justify-between w-full">
-      {/* Background Track Line */}
-      <div className="absolute top-1/2 left-[5%] w-[90%] h-[1px] bg-[#BC9661]/20 -translate-y-1/2 z-0" />
-      
-      {steps.map((s, index) => (
-        <div key={s} className="relative z-10 flex flex-col items-center   flex-1">
-          {/* Increased Circle Size and Font Size */}
-          <div
-            className={cn(
-              "w-[70px] h-[70px] rounded-full heading-font flex items-center justify-center text-[32px] font-serif transition-all duration-500 ",
-              s === currentStep 
-                ? "bg-[#C19A5B] border-[#BC9661] text-white " 
-                : s < currentStep 
-                ? "bg-[#BC9661] border-[#BC9661] text-white" 
-                : "bg-[#F3EEE7] border-[#D1C7B7]/40 text-[#727272]"
-            )}
-          >
-            {s.toString().padStart(2, '0')}
-          </div>
+    <div className="relative w-full">
+  <div className="absolute top-[35px] left-[35px] right-[35px] h-[1px] bg-[#BC9661]/20" />
 
-          {/* Progress Connector Fill */}
-          {index < steps.length - 1 && (
-            <div className="absolute top-1/2 left-[50%] w-full h-[1px] -z-10 -translate-y-1/2 overflow-hidden">
-              <div 
-                className={cn(
-                  "h-full bg-[#BC9661] transition-all duration-700 ease-in-out",
-                  s < currentStep ? "w-full" : "w-0"
-                )}
-              />
-            </div>
+  <div
+    className="absolute top-[35px] left-[35px] h-[1px] bg-[#BC9661] transition-all duration-700 ease-in-out"
+    style={{
+      width:
+        currentStep <= 1
+          ? "0%"
+          : `calc(((100% - 70px) / ${steps.length - 1}) * ${currentStep - 1})`,
+    }}
+  />
+
+  <div className="relative flex items-center justify-between">
+    {steps.map((s) => (
+      <div key={s} className="z-10 flex flex-col items-center">
+        <div
+          className={cn(
+            "w-[70px] h-[70px] rounded-full heading-font flex items-center justify-center text-[32px] font-serif transition-all duration-500",
+            s === currentStep
+              ? "bg-[#C19A5B] text-white"
+              : s < currentStep
+              ? "bg-[#BC9661] text-white"
+              : "bg-[#F3EEE7] text-[#727272]"
           )}
+        >
+          {s.toString().padStart(2, "0")}
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
+  </div>
+</div>
   );
 };
