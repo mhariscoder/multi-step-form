@@ -26,10 +26,12 @@ export default function StepTen() {
     userZip, setUserZip,
     coverType,
     roomType,
-    designStyle,
-    lightPriority,
-    privacyPreference,
+    roomUsage,
     roomVibe,
+    designStyle,
+    privacyPreference,
+    lightPriority,
+    lookPreference,
     prevStep 
   } = useFormStore();
 
@@ -38,14 +40,14 @@ export default function StepTen() {
   const handleSubmit = async () => {
     setLoading(true);
     const payload = {
-      coverType: coverType || "Wooden Blind",
-      color: "White",
-      room: roomType || "Living Room",
-      style: designStyle || "Modern",
-      material: "Wood",
-      lightControl: lightPriority || "Medium",
-      privacy: privacyPreference || "High",
-      budget: "200-400",
+      coverType,
+      roomType,
+      roomUsage,
+      roomVibe,
+      designStyle,
+      privacyPreference,
+      lightPriority,
+      lookPreference,
       notes: roomVibe || "Personalized recommendation request"
     };
 
