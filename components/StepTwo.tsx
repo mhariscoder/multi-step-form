@@ -14,55 +14,70 @@ export default function StepTwo() {
   const { coverType, setCoverType, nextStep, prevStep } = useFormStore();
 
   return (
-    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
       
       {/* Header Section */}
-      <header className="space-y-3">
-        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+      <header className="space-y-4">
+        <h1 className="text-[48px] font-serif leading-[59px] text-[#18191A] ">
           What are you looking to cover?
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] font-sans">
+        <p className="text-[#727272] text-[20px] leading-[20px] font-sans">
           This helps us recommend products that fit your window or door type perfectly.
         </p>
       </header>
 
       {/* Options Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {OPTIONS.map((opt) => {
-          const Icon = opt.icon;
-          const isSelected = coverType === opt.id;
-          
-          return (
-            <button
-              key={opt.id}
-              onClick={() => setCoverType(opt.id)}
-              className={`flex flex-col items-start p-8 rounded-sm transition-all text-left min-h-[220px] relative
-                ${isSelected 
-                  ? "bg-[#0F172A] text-white shadow-xl scale-[1.02] z-10" 
-                  : "bg-[#FBF9F6] text-[#1A1A1A] hover:bg-white hover:shadow-md border border-transparent"
-                } ${opt.id === 'both' || opt.id === 'not_sure' ? 'md:col-span-1.5' : ''}`}
-            >
-              <div className={`p-3 rounded-full mb-6 ${isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"}`}>
-                <Icon size={20} />
-              </div>
-              
-              <h3 className={`text-[24px] font-serif mb-2 ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
-                {opt.title}
-              </h3>
-              
-              <p className={`text-[14px] leading-relaxed font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
-                {opt.desc}
-              </p>
-            </button>
-          );
-        })}
-      </div>
+     <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-6">
+  {OPTIONS.map((opt, index) => {
+    const Icon = opt.icon;
+    const isSelected = coverType === opt.id;
+    const isBottomRow = index >= 3;
+
+    return (
+      <button
+        key={opt.id}
+        onClick={() => setCoverType(opt.id)}
+        className={`flex flex-col items-start p-8 rounded-sm transition-all text-left min-h-[235px] relative
+          ${isSelected
+            ? "bg-[#0F172A] text-white shadow-xl scale-[1.02] z-10"
+            : "bg-[#FBF9F6] text-[#1A1A1A] hover:bg-white hover:shadow-md border border-transparent"
+          }
+          ${isBottomRow ? "md:col-span-3" : "md:col-span-2"}
+        `}
+      >
+        <div
+          className={`rounded-full mb-6 h-[50px] w-[50px] flex items-center justify-center ${
+            isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"
+          }`}
+        >
+          <Icon size={18} />
+        </div>
+
+        <h3
+          className={`text-[32px] font-serif mb-2 ${
+            isSelected ? "text-white" : "text-[#1A1A1A]"
+          }`}
+        >
+          {opt.title}
+        </h3>
+
+        <p
+          className={`text-[18px] leading-[20px] font-sans ${
+            isSelected ? "text-slate-300" : "text-[#8E8E8E]"
+          }`}
+        >
+          {opt.desc}
+        </p>
+      </button>
+    );
+  })}
+</div>
 
       {/* Footer Navigation */}
       <div className="flex flex-col md:flex-row gap-4 pt-4">
         <button 
           onClick={prevStep}
-          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center"
+          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-[700]  hover:bg-white/50 transition-all text-center"
         >
           Back
         </button>
@@ -70,7 +85,7 @@ export default function StepTwo() {
         <button 
           onClick={nextStep}
           disabled={!coverType}
-          className={`flex-1 py-4 rounded-full text-white text-[16px] font-sans font-semibold transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[14px]  font-[700] font-sans  transition-all shadow-sm ${
             coverType ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
@@ -79,7 +94,7 @@ export default function StepTwo() {
       </div>
 
       {/* Security Disclaimer */}
-      <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide">
+      <p className="text-center text-[16px] text-[#727272] font-sans tracking-wide">
         Your info is secure · No spam · We never share your details
       </p>
     </div>

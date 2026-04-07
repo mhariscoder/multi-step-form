@@ -29,11 +29,11 @@ export default function StepFour() {
     <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
       
       {/* Header Section */}
-      <header className="space-y-3">
-        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+      <header className="space-y-4">
+        <h1 className="text-[48px] font-serif text-[#1A1A1A] leading-[59px] tracking-tight">
           Which style feels closest to your room?
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] font-sans">
+        <p className="text-[#8E8E8E] text-[20px] leading-[20px] font-sans">
           Your design aesthetic helps us recommend products that complement your space.
         </p>
       </header>

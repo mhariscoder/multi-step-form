@@ -41,9 +41,9 @@ export default function MultiStepForm() {
 
   return (
     // Changed bg to #FBF9F6 to match the "Let's Start with Your Room" background
-    <main className="min-h-screen bg-[#FBF9F6] py-12 px-6 md:px-16 lg:px-24">
+    <main className="min-h-screen bg-[#FBF9F6] py-12 ">
       {/* Removed max-width constraint for true full-width layout */}
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col max-w-[1520px]  mx-auto">
         
         {/* Stepper container - uses horizontal track logic */}
         <div className="mb-16 md:mb-24 w-full">
@@ -51,7 +51,7 @@ export default function MultiStepForm() {
         </div>
 
         {/* Content Area */}
-        <div className="transition-all duration-500 w-full bg-[#F3EEE7] p-24">
+        <div className="transition-all duration-500 w-full bg-[#F3EEE7]  p-24">
           {renderStep()}
         </div>
       </div>

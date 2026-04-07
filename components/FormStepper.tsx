@@ -11,19 +11,19 @@ export const FormStepper = ({ currentStep }: { currentStep: number }) => {
   return (
     <div className="relative flex items-center justify-between w-full">
       {/* Background Track Line */}
-      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#BC9661]/20 -translate-y-1/2 z-0" />
+      <div className="absolute top-1/2 left-[5%] w-[90%] h-[1px] bg-[#BC9661]/20 -translate-y-1/2 z-0" />
       
       {steps.map((s, index) => (
-        <div key={s} className="relative z-10 flex flex-col items-center flex-1">
+        <div key={s} className="relative z-10 flex flex-col items-center   flex-1">
           {/* Increased Circle Size and Font Size */}
           <div
             className={cn(
-              "w-12 h-12 rounded-full flex items-center justify-center text-[16px] font-serif transition-all duration-500 border shadow-sm",
+              "w-[70px] h-[70px] rounded-full flex items-center justify-center text-[32px] font-serif transition-all duration-500 ",
               s === currentStep 
-                ? "bg-white border-[#BC9661] text-[#1A1A1A] scale-110 ring-8 ring-[#BC9661]/5" 
+                ? "bg-[#C19A5B] border-[#BC9661] text-white " 
                 : s < currentStep 
                 ? "bg-[#BC9661] border-[#BC9661] text-white" 
-                : "bg-[#F3F0EB] border-[#D1C7B7]/40 text-[#8E8E8E]"
+                : "bg-[#F3EEE7] border-[#D1C7B7]/40 text-[#727272]"
             )}
           >
             {s.toString().padStart(2, '0')}

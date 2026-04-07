@@ -33,11 +33,11 @@ export default function StepThree() {
   const isComplete = roomType && roomUsage;
 
   return (
-    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+    <div className="w-full flex flex-col md:gap-18  animate-in fade-in duration-700">
       
       {/* Header Section */}
-      <header className="space-y-3">
-        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+      <header className="space-y-4">
+        <h1 className="text-[48px] font-serif text-[#1A1A1A] leading-[59px] ">
           Tell us about this room
         </h1>
         <p className="text-[#8E8E8E] text-[16px] font-sans">
@@ -47,7 +47,7 @@ export default function StepThree() {
 
       {/* Section 1: Room Type */}
       <div className="space-y-6">
-        <h3 className="text-[22px] font-serif text-[#1A1A1A]">
+        <h3 className="text-[32px] font-serif text-[#1A1A1A]">
           What type of room is this? <span className="text-[#BC9661] ml-1">*</span>
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
@@ -58,16 +58,19 @@ export default function StepThree() {
               <button
                 key={item.id}
                 onClick={() => setRoomType(item.id)}
-                className={`flex flex-col items-center justify-center p-6 rounded-sm transition-all gap-4 border
+                className={`flex flex-col items-center min-h-[120px] justify-center p-6 rounded-sm transition-all gap-4 border
                   ${isSelected 
                     ? "bg-[#0F172A] border-[#0F172A] text-white shadow-md" 
                     : "bg-[#FBF9F6] border-transparent text-[#8E8E8E] hover:bg-white hover:border-[#D1C7B7]"
                   }`}
               >
+                <div className="min-h-[60px]   flex flex-col items-center justify-between">
+
                 <Icon size={20} className={isSelected ? "text-[#BC9661]" : "text-[#BC9661] opacity-70"} />
-                <span className={`text-[13px] font-sans font-medium ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+                <span className={`text-[20px] font-sans font-medium ${isSelected ? "text-white" : "text-[#727272]"}`}>
                   {item.label}
                 </span>
+                </div>
               </button>
             );
           })}
@@ -76,38 +79,56 @@ export default function StepThree() {
 
       {/* Section 2: Primary Use */}
       <div className="space-y-6">
-        <h3 className="text-[22px] font-serif text-[#1A1A1A]">
+        <h3 className="text-[32px] font-serif text-[#1A1A1A]">
           Primary use of this space? <span className="text-[#BC9661] ml-1">*</span>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {USAGE_TYPES.map((item) => {
-            const Icon = item.icon;
-            const isSelected = roomUsage === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => setRoomUsage(item.id)}
-                className={`flex flex-col items-start p-8 rounded-sm transition-all text-left gap-4 border
-                  ${isSelected 
-                    ? "bg-[#0F172A] border-[#0F172A] text-white shadow-lg" 
-                    : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
-                  }`}
-              >
-                <div className={`p-3 rounded-full ${isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"}`}>
-                  <Icon size={20} />
-                </div>
-                <div>
-                  <h4 className={`text-[20px] font-serif mb-1 ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
-                    {item.title}
-                  </h4>
-                  <p className={`text-[13px] font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
-                    {item.desc}
-                  </p>
-                </div>
-              </button>
-            );
-          })}
+     <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+  {USAGE_TYPES.map((item, index) => {
+    const Icon = item.icon;
+    const isSelected = roomUsage === item.id;
+    const isBottomRow = index >= 3;
+
+    return (
+      <button
+        key={item.id}
+        onClick={() => setRoomUsage(item.id)}
+        className={`flex flex-col items-start p-8 rounded-sm transition-all md:min-h-[225px] text-left gap-4 border
+          ${isBottomRow ? "md:col-span-3" : "md:col-span-2"}
+          ${
+            isSelected
+              ? "bg-[#0F172A] border-[#0F172A] text-white shadow-lg"
+              : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
+          }`}
+      >
+        <div
+          className={`rounded-full h-[50px] w-[50px] flex items-center justify-center ${
+            isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"
+          }`}
+        >
+          <Icon size={18} />
         </div>
+
+        <div>
+          <h4
+            className={`text-[32px] font-serif mb-1 ${
+              isSelected ? "text-white" : "text-[#1A1A1A]"
+            }`}
+          >
+            {item.title}
+          </h4>
+
+          <p
+            className={`text-[18px] font-sans ${
+              isSelected ? "text-slate-300" : "text-[#8E8E8E]"
+            }`}
+          >
+            {item.desc}
+          </p>
+        </div>
+      </button>
+    );
+  })}
+</div>
       </div>
 
       {/* Footer Navigation */}
