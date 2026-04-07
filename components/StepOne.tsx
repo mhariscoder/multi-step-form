@@ -31,10 +31,10 @@ export default function StepOne() {
       
       {/* Header Section */}
       <header className="space-y-4">
-        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] leading-[1.1] md:leading-[59px] heading-font text-[#1A1A1A]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[42px] xl:text-[48px] leading-[1.1] md:leading-[1.1] xl:leading-[59px] heading-font text-[#1A1A1A]">
           Let's Start with Your Room
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] leading-[1.5] md:leading-[20px] xl:leading-[20px] text-font">
           Upload a photo of your room for AI-powered design analysis, or skip this step to continue with the quiz.
         </p>
       </header>
@@ -61,8 +61,8 @@ export default function StepOne() {
 
         </div>
 
-        <h2 className="text-[24px] sm:text-[28px] md:text-[32px] heading-font text-[#1A1A1A] mb-2">Drop Your Photo Here</h2>
-        <p className="text-center text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] text-font px-3 max-w-[649px] mb-10 leading-relaxed">
+        <h2 className="text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] heading-font text-[#1A1A1A] mb-2">Drop Your Photo Here</h2>
+        <p className="text-center text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] text-font px-3 max-w-[649px] mb-10 leading-relaxed">
           Upload a photo of your room and our AI will analyze features to personalize your recommendations.
         </p>
 
@@ -91,10 +91,10 @@ export default function StepOne() {
 
       {/* Info Section Box - Soft Cream #FBF9F6 */}
       <div className="bg-[#FBF9F6] p-12  border border-[#F0EDE6]">
-        <h3 className="text-[24px] sm:text-[28px] md:text-[32px] heading-font text-[#1A1A1A] mb-8">What Our AI Looks For:</h3>
+        <h3 className="text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] heading-font text-[#1A1A1A] mb-8">What Our AI Looks For:</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-4">
           {infoItems.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 text-[#727272] text-[15px] sm:text-[17px] md:text-[20px] text-font">
+            <div key={idx} className="flex items-center gap-3 text-[#727272] text-[15px] sm:text-[17px] md:text-[18px] xl:text-[20px] text-font">
               <span className="w-1.5 h-1.5 rounded-full bg-[#BC9661] flex-shrink-0" />
               {item}
             </div>
@@ -106,7 +106,7 @@ export default function StepOne() {
       <div className="space-y-5">
         <button 
           onClick={nextStep}
-          className="w-full py-4 rounded-[59px] text-[13px] md:text-[14px] font-[700] text-white text-font font-semibold transition-all hover:brightness-105 active:scale-[0.99] shadow-sm"
+          className="w-full py-4 rounded-[59px] text-[13px] md:text-[13px] xl:text-[14px] font-[700] text-white text-font font-semibold transition-all hover:brightness-105 active:scale-[0.99] shadow-sm"
           style={{ backgroundColor: '#C19A5B' }}
         >
           Next

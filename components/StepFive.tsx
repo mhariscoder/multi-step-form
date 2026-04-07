@@ -29,13 +29,13 @@ export default function StepFive() {
   return (
     <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">Privacy vs. View</h1>
-        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[42px] xl:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[1.1] xl:leading-[59px]">Privacy vs. View</h1>
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] leading-[1.5] md:leading-[20px] xl:leading-[20px] text-font">
           How important is nighttime privacy compared to keeping a daytime view?
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {PREFERENCES.map((pref, index) => {
           const Icon = pref.icon;
           const isSelected = privacyPreference === pref.id;
@@ -48,7 +48,7 @@ export default function StepFive() {
                 isSelected
                   ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl z-10"
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
-              } ${index === 2 ? "md:col-span-2" : "md:col-span-1"}`}
+              } ${index === 2 ? "lg:col-span-2" : "lg:col-span-1"}`}
             >
               <div className="flex items-center mb-6   gap-5 ">
 
@@ -60,12 +60,12 @@ export default function StepFive() {
                 <Icon size={20} />
               </div>
 
-              <h3 className={`text-[22px] sm:text-[26px] md:text-[32px] heading-font leading-[1.15] md:leading-[59px] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+              <h3 className={`text-[22px] sm:text-[26px] md:text-[28px] xl:text-[32px] heading-font leading-[1.15] md:leading-[1.1] xl:leading-[59px] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                 {pref.title}
               </h3>
                  
                 </div>
-              <p className={`text-[15px] sm:text-[17px] md:text-[18px] leading-[1.45] md:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+              <p className={`text-[15px] sm:text-[17px] md:text-[16px] xl:text-[18px] leading-[1.45] md:leading-[20px] xl:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                 {pref.desc}
               </p>
             </button>
@@ -84,7 +84,7 @@ export default function StepFive() {
         <button
           onClick={nextStep}
           disabled={!privacyPreference}
-          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[13px] xl:text-[14px] font-[700] text-font transition-all shadow-sm ${
             privacyPreference ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >

@@ -75,10 +75,10 @@ export default function StepTen() {
   return (
     <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[42px] xl:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[1.1] xl:leading-[59px]">
           Almost there! Get your personalized results
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] leading-[1.5] md:leading-[20px] xl:leading-[20px] text-font">
           Enter your details to receive your custom window treatment recommendations.
         </p>
       </header>
@@ -102,14 +102,14 @@ export default function StepTen() {
             </svg>
 
           </div>
-          <h4 className="text-[24px] sm:text-[28px] md:text-[32px] leading-[1.1] heading-font text-[#1A1A1A]">
+          <h4 className="text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] leading-[1.1] heading-font text-[#1A1A1A]">
             Your AI-Powered Design Consultation
           </h4>
         </div>
 
         <div className="">
 
-          <p className="text-[15px] sm:text-[17px] md:text-[18px] leading-[1.45] md:leading-[20px] text-[#000000] text-font">
+          <p className="text-[15px] sm:text-[17px] md:text-[16px] xl:text-[18px] leading-[1.45] md:leading-[20px] xl:leading-[20px] text-[#000000] text-font">
             Based on your preferences, our AI will generate personalized window treatment recommendations.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function StepTen() {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               disabled={loading}
-              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
+              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[16px] xl:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
             />
           </div>
 
@@ -135,7 +135,7 @@ export default function StepTen() {
               value={userZip}
               onChange={(e) => setUserZip(e.target.value)}
               disabled={loading}
-              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
+              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[16px] xl:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function StepTen() {
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
             disabled={loading}
-            className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
+            className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[16px] xl:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
           />
         </div>
       </div>
@@ -170,7 +170,7 @@ export default function StepTen() {
         <button
           onClick={handleSubmit}
           disabled={!isComplete || loading}
-          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm flex items-center justify-center gap-3 ${isComplete && !loading ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[13px] xl:text-[14px] font-[700] text-font transition-all shadow-sm flex items-center justify-center gap-3 ${isComplete && !loading ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
             }`}
         >
           {loading ? (

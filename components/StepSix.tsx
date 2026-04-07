@@ -41,19 +41,19 @@ export default function StepSix() {
   return (
     <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[42px] xl:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[1.1] xl:leading-[59px]">
           What matters most for light in this room?
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] leading-[1.5] md:leading-[20px] xl:leading-[20px] text-font">
           Light control is one of the most important factors in choosing window treatments.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5">
         {PRIORITIES.map((item, index) => {
           const Icon = item.icon;
           const isSelected = lightPriority === item.id;
-          const gridSpan = index < 3 ? "md:col-span-2" : "md:col-span-3";
+          const gridSpan = index < 3 ? " col-span-2 lg:col-span-2" : " col-span-2 lg:col-span-3";
 
           return (
             <button
@@ -73,11 +73,11 @@ export default function StepSix() {
                 <Icon size={18} />
               </div>
 
-              <h3 className={`text-[24px] sm:text-[28px] md:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+              <h3 className={`text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                 {item.title}
               </h3>
 
-              <p className={`text-[15px] sm:text-[17px] md:text-[18px] leading-[1.45] md:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+              <p className={`text-[15px] sm:text-[17px] md:text-[16px] xl:text-[18px] leading-[1.45] md:leading-[20px] xl:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                 {item.desc}
               </p>
             </button>
@@ -96,7 +96,7 @@ export default function StepSix() {
         <button
           onClick={nextStep}
           disabled={!lightPriority}
-          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[13px] xl:text-[14px] font-[700] text-font transition-all shadow-sm ${
             lightPriority ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >

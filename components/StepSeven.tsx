@@ -61,15 +61,15 @@ export default function StepSeven() {
   return (
     <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[42px] xl:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[1.1] xl:leading-[59px]">
           Which look do you prefer in this room?
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] leading-[1.5] md:leading-[20px] xl:leading-[20px] text-font">
           The aesthetic of your window treatments sets the tone for the entire space.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {LOOKS.map((look, index) => {
           const Icon = look.icon;
           const isSelected = lookPreference === look.id;
@@ -79,7 +79,7 @@ export default function StepSeven() {
             <button
               key={look.id}
               onClick={() => setLookPreference(look.id)}
-              className={`flex flex-col items-start p-8  transition-all text-left border min-h-[235px] ${
+              className={`flex flex-col items-start p-8  transition-all text-left border lg:min-h-[235px] ${
                 isLastItem ? "md:col-span-3 min-h-[170px]" : "md:col-span-1"
               } ${
                 isSelected
@@ -96,11 +96,11 @@ export default function StepSeven() {
               </div>
 
               <div className={isLastItem ? "flex flex-col" : ""}>
-                <h3 className={`text-[24px] sm:text-[28px] md:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+                <h3 className={`text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                   {look.title}
                 </h3>
 
-                <p className={`text-[15px] sm:text-[17px] md:text-[18px] leading-[1.45] md:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+                <p className={`text-[15px] sm:text-[17px] md:text-[16px] xl:text-[18px] leading-[1.45] md:leading-[20px] xl:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                   {look.desc}
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function StepSeven() {
         <button
           onClick={nextStep}
           disabled={!lookPreference}
-          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[13px] xl:text-[14px] font-[700] text-font transition-all shadow-sm ${
             lookPreference ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >

@@ -28,15 +28,15 @@ export default function StepFour() {
   return (
     <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[30px] sm:text-[38px] md:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[59px]">
+        <h1 className="text-[30px] sm:text-[38px] md:text-[42px] xl:text-[48px] heading-font text-[#1A1A1A] leading-[1.1] md:leading-[1.1] xl:leading-[59px]">
           Which style feels closest to your room?
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] md:leading-[20px] text-font">
+        <p className="text-[#8E8E8E] text-[16px] sm:text-[18px] md:text-[18px] xl:text-[20px] leading-[1.5] md:leading-[20px] xl:leading-[20px] text-font">
           Your design aesthetic helps us recommend products that complement your space.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 auto-rows-fr gap-5">
         {STYLES.map((style, index) => {
           const Icon = style.icon;
           const isSelected = designStyle === style.id;
@@ -50,7 +50,7 @@ export default function StepFour() {
                 isSelected
                   ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl scale-[1.02] z-10"
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
-              } ${isBottomRow ? "md:col-span-3" : "md:col-span-2"}`}
+              } ${isBottomRow ? " col-span-2 lg:col-span-3" : " col-span-2 lg:col-span-2"}`}
             >
               <div
                 className={`rounded-full mb-6 h-[50px] w-[50px] flex items-center justify-center ${
@@ -60,11 +60,11 @@ export default function StepFour() {
                 <Icon size={18} />
               </div>
 
-              <h3 className={`text-[24px] sm:text-[28px] md:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+              <h3 className={`text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                 {style.title}
               </h3>
 
-              <p className={`text-[15px] sm:text-[17px] md:text-[18px] leading-[1.45] md:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+              <p className={`text-[15px] sm:text-[17px] md:text-[16px] xl:text-[18px] leading-[1.45] md:leading-[20px] xl:leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                 {style.desc}
               </p>
             </button>
@@ -83,7 +83,7 @@ export default function StepFour() {
         <button
           onClick={nextStep}
           disabled={!designStyle}
-          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[14px] font-[700] text-font transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[13px] md:text-[13px] xl:text-[14px] font-[700] text-font transition-all shadow-sm ${
             designStyle ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
