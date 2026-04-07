@@ -7,9 +7,7 @@ import {
   Trees, 
   Layers, 
   LayoutGrid, 
-  HelpCircle,
-  ArrowLeft, 
-  ArrowRight 
+  HelpCircle 
 } from "lucide-react";
 
 const LOOKS = [
@@ -27,26 +25,20 @@ const LOOKS = [
   },
   { 
     id: 'slats', 
-    title: 'Slats (Blinds or Shutters)', 
+    title: 'Slats (Blinds Or Shutters)', 
     desc: 'Classic horizontal or vertical slats for precise light control', 
     icon: Columns 
   },
   { 
-    id: 'natural', 
-    title: 'Natural Textured / Woven Woods', 
-    desc: 'Organic materials like bamboo, jute, and grasses', 
-    icon: Trees 
-  },
-  { 
     id: 'sheer', 
-    title: 'Sheer or Layered Look', 
+    title: 'Sheer Or Layered Look', 
     desc: 'Light, ethereal fabrics that softly filter light', 
     icon: Layers 
   },
   { 
     id: 'large_panel', 
     title: 'Large Panel / Vertical Look', 
-    desc: 'Bold panels that glide smoothly - great for wide spaces', 
+    desc: 'Bold panels that glide smoothly – great for wide spaces', 
     icon: LayoutGrid 
   },
   { 
@@ -55,68 +47,91 @@ const LOOKS = [
     desc: 'Recommend for me based on my other preferences', 
     icon: HelpCircle 
   },
+  { 
+    id: 'natural', 
+    title: 'Natural Textured / Woven Woods', 
+    desc: 'Organic materials like bamboo, jute, and grasses', 
+    icon: Trees 
+  },
 ];
 
 export default function StepSeven() {
   const { lookPreference, setLookPreference, nextStep, prevStep } = useFormStore();
 
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Which look do you prefer in this room?</h1>
-        <p className="text-slate-500 text-lg">
+    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+      
+      {/* Header Section */}
+      <header className="space-y-3">
+        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+          Which look do you prefer in this room?
+        </h1>
+        <p className="text-[#8E8E8E] text-[16px] font-sans">
           The aesthetic of your window treatments sets the tone for the entire space.
         </p>
-      </div>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {LOOKS.map((look) => {
+      {/* Options Grid - Mixed 3-column and full-width layout */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {LOOKS.map((look, index) => {
           const Icon = look.icon;
           const isSelected = lookPreference === look.id;
+          const isLastItem = index === LOOKS.length - 1;
           
           return (
             <button
               key={look.id}
               onClick={() => setLookPreference(look.id)}
-              className={`flex flex-col items-start p-6 rounded-2xl border-2 transition-all text-left group ${
-                isSelected 
-                  ? "border-blue-600 bg-blue-50/50 ring-1 ring-blue-600 shadow-sm" 
-                  : "border-slate-100 hover:border-blue-200 hover:bg-slate-50"
-              }`}
+              className={`flex flex-col items-start p-8 rounded-sm transition-all text-left border min-h-[220px]
+                ${isLastItem ? "md:col-span-3 min-h-[140px]" : "md:col-span-1"}
+                ${isSelected 
+                  ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl z-10 scale-[1.01]" 
+                  : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
+                }`}
             >
-              <div className={`p-2 rounded-lg mb-4 transition-colors ${
-                isSelected ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-500 group-hover:bg-blue-100"
-              }`}>
+              {/* Icon Container */}
+              <div className={`p-3 rounded-full mb-6 ${isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"}`}>
                 <Icon size={20} />
               </div>
-              <h3 className="font-bold text-slate-900 text-lg">{look.title}</h3>
-              <p className="text-slate-500 text-sm mt-1 leading-relaxed">{look.desc}</p>
+              
+              <div className={isLastItem ? "flex flex-col" : ""}>
+                <h3 className={`text-[24px] font-serif mb-2 ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+                  {look.title}
+                </h3>
+                
+                <p className={`text-[14px] leading-relaxed font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+                  {look.desc}
+                </p>
+              </div>
             </button>
           );
         })}
       </div>
 
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t border-slate-100">
+      {/* Navigation Buttons */}
+      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
         <button 
           onClick={prevStep}
-          className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors"
+          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center"
         >
-          <ArrowLeft size={20} /> Back
+          Back
         </button>
         
         <button 
           onClick={nextStep}
           disabled={!lookPreference}
-          className={`px-10 py-3 rounded-xl flex items-center gap-2 font-bold transition-all ${
-            lookPreference 
-              ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 active:scale-95" 
-              : "bg-blue-200 text-white cursor-not-allowed"
+          className={`flex-1 py-4 rounded-full text-white text-[16px] font-sans font-semibold transition-all shadow-sm ${
+            lookPreference ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
-          Next <ArrowRight size={20} />
+          Next
         </button>
       </div>
+
+      {/* Security Disclaimer */}
+      <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase">
+        Your info is secure · No spam · We never share your details
+      </p>
     </div>
   );
 }

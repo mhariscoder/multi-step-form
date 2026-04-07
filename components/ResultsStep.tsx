@@ -1,6 +1,5 @@
 "use client";
 import { useFormStore } from "@/store/useFormStore";
-import { ExternalLink, CheckCircle2, ArrowLeft, RefreshCcw } from "lucide-react";
 
 interface Product {
   id: string;
@@ -15,75 +14,81 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
   const { setStep } = useFormStore();
 
   const handleRestart = () => {
-    // Optional: Clear store and go to step 1
     window.location.reload(); 
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in zoom-in duration-500 max-w-5xl mx-auto">
-      <div className="text-center space-y-4">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-2">
-          <CheckCircle2 size={32} />
-        </div>
-        <h1 className="text-4xl font-bold text-slate-900">Your Personalized Recommendations</h1>
-        <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+      
+      {/* Header Section */}
+      <header className="space-y-3">
+        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+          Your Personalized Recommendations
+        </h1>
+        <p className="text-[#8E8E8E] text-[16px] font-sans max-w-2xl">
           Our AI has analyzed your preferences. Here are the best window treatments for your space.
         </p>
-      </div>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {recommendations.map((product) => (
+      {/* Recommendations List */}
+      <div className="flex flex-col gap-6">
+        {recommendations.map((product, index) => (
           <div 
             key={product.id} 
-            className="group bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:shadow-blue-100 transition-all duration-300 flex flex-col"
+            className="flex flex-col md:flex-row bg-[#FBF9F6] border border-transparent hover:border-[#D1C7B7]/30 transition-all overflow-hidden rounded-sm"
           >
-            {/* Image Section */}
-            <div className="relative h-56 bg-slate-100 overflow-hidden">
+            {/* Product Image Section */}
+            <div className="w-full md:w-1/3 aspect-square bg-[#E8E8E8] relative overflow-hidden">
               <img 
-                src={product.image || "https://placehold.co/600x400?text=No+Image+Available"} 
+                src={product.image || "https://placehold.co/600x600?text=Product+Image"} 
                 alt={product.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
               />
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-blue-600 shadow-sm uppercase tracking-wider">
-                  {product.product_type}
-                </span>
-              </div>
             </div>
 
-            {/* Content Section */}
-            <div className="p-6 flex flex-col flex-grow space-y-4">
-              <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+            {/* Product Content Section */}
+            <div className="flex-1 p-8 flex flex-col justify-center space-y-4">
+              <h3 className="text-[32px] font-serif text-[#1A1A1A] leading-tight">
                 {product.title}
               </h3>
               
-              <div className="bg-blue-50 rounded-2xl p-4 flex-grow">
-                <p className="text-sm text-blue-800 leading-relaxed">
+              <div className="space-y-2">
+                <p className="text-[15px] text-[#1A1A1A] leading-relaxed font-sans">
                   <span className="font-bold">Why this works:</span> {product.reason}
                 </p>
               </div>
 
+              {/* View Product Button - Alternating Gold/White Style */}
               <a 
                 href={product.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full py-4 bg-slate-900 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-all active:scale-95"
+                className={`w-full py-4 rounded-full text-[14px] font-sans font-bold text-center transition-all border ${
+                  index === 0 
+                    ? "bg-[#BC9661] text-white border-[#BC9661] hover:brightness-105" 
+                    : "bg-white text-[#1A1A1A] border-[#1A1A1A] hover:bg-black hover:text-white"
+                }`}
               >
-                View Product <ExternalLink size={18} />
+                View Product
               </a>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Bottom Actions */}
-      <div className="flex flex-col md:flex-row gap-4 justify-center items-center pt-10">
+      {/* Footer Navigation */}
+      <div className="flex flex-col gap-4 pt-8 border-t border-[#D1C7B7]/30">
         <button 
           onClick={handleRestart}
-          className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors"
+          className="w-full py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-[#FBF9F6] transition-all text-center uppercase tracking-widest"
         >
-          <RefreshCcw size={20} /> Start New Consultation
+          Start New Consultation
         </button>
+        
+        {/* Security Footer */}
+        <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase mt-4">
+          Your info is secure · No spam · We never share your details
+        </p>
       </div>
     </div>
   );

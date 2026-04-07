@@ -1,10 +1,9 @@
 "use client";
 import { useFormStore } from "@/store/useFormStore";
 import { 
-  Sofa, Bed, UtensilsCrossed, Wine, Bath, 
+  Sofa, Bed, UtensilsCrossed, Bath, 
   Briefcase, Monitor, Baby, Shirt, Car,
-  Coffee, Moon, PartyPopper, BookOpen, Users,
-  ArrowLeft, ArrowRight 
+  Coffee, Moon, PartyPopper, BookOpen, Users
 } from "lucide-react";
 
 const ROOM_TYPES = [
@@ -34,16 +33,24 @@ export default function StepThree() {
   const isComplete = roomType && roomUsage;
 
   return (
-    <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Tell us about this room</h1>
-        <p className="text-slate-500 text-lg">Understanding your space helps us match you with the right products.</p>
-      </div>
+    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+      
+      {/* Header Section */}
+      <header className="space-y-3">
+        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+          Tell us about this room
+        </h1>
+        <p className="text-[#8E8E8E] text-[16px] font-sans">
+          Understanding your space helps us match you with the right products.
+        </p>
+      </header>
 
       {/* Section 1: Room Type */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-800">What type of room is this? <span className="text-red-500">*</span></h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+      <div className="space-y-6">
+        <h3 className="text-[22px] font-serif text-[#1A1A1A]">
+          What type of room is this? <span className="text-[#BC9661] ml-1">*</span>
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {ROOM_TYPES.map((item) => {
             const Icon = item.icon;
             const isSelected = roomType === item.id;
@@ -51,12 +58,16 @@ export default function StepThree() {
               <button
                 key={item.id}
                 onClick={() => setRoomType(item.id)}
-                className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all gap-2 ${
-                  isSelected ? "border-blue-600 bg-blue-50 text-blue-600" : "border-slate-100 hover:border-slate-200 text-slate-600"
-                }`}
+                className={`flex flex-col items-center justify-center p-6 rounded-sm transition-all gap-4 border
+                  ${isSelected 
+                    ? "bg-[#0F172A] border-[#0F172A] text-white shadow-md" 
+                    : "bg-[#FBF9F6] border-transparent text-[#8E8E8E] hover:bg-white hover:border-[#D1C7B7]"
+                  }`}
               >
-                <Icon size={20} />
-                <span className="text-xs font-semibold">{item.label}</span>
+                <Icon size={20} className={isSelected ? "text-[#BC9661]" : "text-[#BC9661] opacity-70"} />
+                <span className={`text-[13px] font-sans font-medium ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+                  {item.label}
+                </span>
               </button>
             );
           })}
@@ -64,9 +75,11 @@ export default function StepThree() {
       </div>
 
       {/* Section 2: Primary Use */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-800">Primary use of this space? <span className="text-red-500">*</span></h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="space-y-6">
+        <h3 className="text-[22px] font-serif text-[#1A1A1A]">
+          Primary use of this space? <span className="text-[#BC9661] ml-1">*</span>
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {USAGE_TYPES.map((item) => {
             const Icon = item.icon;
             const isSelected = roomUsage === item.id;
@@ -74,39 +87,52 @@ export default function StepThree() {
               <button
                 key={item.id}
                 onClick={() => setRoomUsage(item.id)}
-                className={`flex flex-col items-start p-5 rounded-2xl border-2 transition-all text-left gap-1 ${
-                  isSelected ? "border-blue-600 bg-blue-50 shadow-sm" : "border-slate-100 hover:border-slate-200"
-                }`}
+                className={`flex flex-col items-start p-8 rounded-sm transition-all text-left gap-4 border
+                  ${isSelected 
+                    ? "bg-[#0F172A] border-[#0F172A] text-white shadow-lg" 
+                    : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
+                  }`}
               >
-                <div className={`p-2 rounded-lg mb-2 ${isSelected ? "bg-blue-600 text-white" : "bg-slate-50 text-slate-500"}`}>
+                <div className={`p-3 rounded-full ${isSelected ? "bg-[#BC9661] text-white" : "bg-[#0F172A] text-white"}`}>
                   <Icon size={20} />
                 </div>
-                <h4 className="font-bold text-slate-900">{item.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                <div>
+                  <h4 className={`text-[20px] font-serif mb-1 ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+                    {item.title}
+                  </h4>
+                  <p className={`text-[13px] font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+                    {item.desc}
+                  </p>
+                </div>
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t border-slate-100">
-        <button onClick={prevStep} className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors">
-          <ArrowLeft size={20} /> Back
+      {/* Footer Navigation */}
+      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
+        <button 
+          onClick={prevStep}
+          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center"
+        >
+          Back
         </button>
         
         <button 
           onClick={nextStep}
           disabled={!isComplete}
-          className={`px-10 py-3 rounded-xl flex items-center gap-2 font-bold transition-all ${
-            isComplete 
-              ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 active:scale-95" 
-              : "bg-blue-200 text-white cursor-not-allowed"
+          className={`flex-1 py-4 rounded-full text-white text-[16px] font-sans font-semibold transition-all shadow-sm ${
+            isComplete ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
-          Next <ArrowRight size={20} />
+          Next
         </button>
       </div>
+
+      <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide">
+        Your info is secure · No spam · We never share your details
+      </p>
     </div>
   );
 }

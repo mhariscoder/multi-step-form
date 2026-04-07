@@ -1,6 +1,6 @@
 "use client";
 import { useFormStore } from "@/store/useFormStore";
-import { Baby, Smartphone, Layers, ArrowLeft, ArrowRight } from "lucide-react";
+import { Baby, Smartphone, Layers } from "lucide-react";
 
 export default function StepNine() {
   const { 
@@ -19,41 +19,50 @@ export default function StepNine() {
     currentValue, 
     onSelect 
   }: any) => (
-    <div className="space-y-4">
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
+    <div className="bg-[#FBF9F6]/50 p-8 rounded-sm border border-transparent hover:border-[#D1C7B7]/30 transition-all space-y-6">
+      <div className="flex items-center gap-4">
+        <div className="p-3 bg-[#0F172A] text-white rounded-full">
           <Icon size={20} />
         </div>
-        <h3 className="text-lg font-bold text-slate-800">{title}</h3>
+        <h3 className="text-[28px] font-serif text-[#1A1A1A] leading-tight">{title}</h3>
       </div>
-      <div className="flex flex-wrap gap-3">
-        {options.map((opt: any) => (
-          <button
-            key={opt.value}
-            onClick={() => onSelect(opt.value)}
-            className={`px-6 py-3 rounded-xl border-2 font-semibold transition-all ${
-              currentValue === opt.value
-                ? "border-blue-600 bg-blue-50 text-blue-600 shadow-sm"
-                : "border-slate-100 hover:border-slate-200 text-slate-600 bg-white"
-            }`}
-          >
-            {opt.label}
-          </button>
-        ))}
+      
+      <div className="flex flex-wrap gap-4">
+        {options.map((opt: any) => {
+          const isSelected = currentValue === opt.value;
+          return (
+            <button
+              key={opt.value}
+              onClick={() => onSelect(opt.value)}
+              className={`px-8 py-3 rounded-full border text-[15px] font-sans font-medium transition-all duration-300 ${
+                isSelected
+                  ? "bg-[#BC9661] border-[#BC9661] text-white shadow-md active:scale-95"
+                  : "bg-white border-[#D1C7B7] text-[#1A1A1A] hover:border-[#1A1A1A]"
+              }`}
+            >
+              {opt.label}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
 
   return (
-    <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">A few practical questions</h1>
-        <p className="text-slate-500 text-lg">
+    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+      
+      {/* Header Section */}
+      <header className="space-y-3">
+        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+          A few practical questions
+        </h1>
+        <p className="text-[#8E8E8E] text-[16px] font-sans">
           These help us recommend the safest and most convenient options for your lifestyle.
         </p>
-      </div>
+      </header>
 
-      <div className="space-y-12">
+      {/* Questions Container */}
+      <div className="flex flex-col gap-6">
         <QuestionRow 
           icon={Baby}
           title="Do you have children or pets?"
@@ -90,24 +99,30 @@ export default function StepNine() {
         />
       </div>
 
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t border-slate-100">
-        <button onClick={prevStep} className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors">
-          <ArrowLeft size={20} /> Back
+      {/* Footer Navigation */}
+      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
+        <button 
+          onClick={prevStep}
+          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center"
+        >
+          Back
         </button>
         
         <button 
           onClick={nextStep}
           disabled={!isComplete}
-          className={`px-10 py-3 rounded-xl flex items-center gap-2 font-bold transition-all ${
-            isComplete 
-              ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 active:scale-95" 
-              : "bg-blue-200 text-white cursor-not-allowed"
+          className={`flex-1 py-4 rounded-full text-white text-[16px] font-sans font-semibold transition-all shadow-sm ${
+            isComplete ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
-          Next <ArrowRight size={20} />
+          Next
         </button>
       </div>
+
+      {/* Security Disclaimer */}
+      <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase">
+        Your info is secure · No spam · We never share your details
+      </p>
     </div>
   );
 }

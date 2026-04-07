@@ -10,32 +10,35 @@ export const FormStepper = ({ currentStep }: { currentStep: number }) => {
 
   return (
     <div className="relative flex items-center justify-between w-full">
-      {/* Background Track */}
-      <div className="absolute top-4 left-0 w-full h-0.5 bg-slate-100 -z-0" />
+      {/* Background Track Line */}
+      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#BC9661]/20 -translate-y-1/2 z-0" />
       
-      {steps.map((s) => (
-        <div key={s} className="relative z-10 flex flex-col items-center">
+      {steps.map((s, index) => (
+        <div key={s} className="relative z-10 flex flex-col items-center flex-1">
+          {/* Increased Circle Size and Font Size */}
           <div
             className={cn(
-              "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300 border-2",
+              "w-12 h-12 rounded-full flex items-center justify-center text-[16px] font-serif transition-all duration-500 border shadow-sm",
               s === currentStep 
-                ? "bg-white border-blue-600 text-blue-600 ring-4 ring-blue-50" 
+                ? "bg-white border-[#BC9661] text-[#1A1A1A] scale-110 ring-8 ring-[#BC9661]/5" 
                 : s < currentStep 
-                ? "bg-blue-600 border-blue-600 text-white" 
-                : "bg-white border-slate-200 text-slate-400"
+                ? "bg-[#BC9661] border-[#BC9661] text-white" 
+                : "bg-[#F3F0EB] border-[#D1C7B7]/40 text-[#8E8E8E]"
             )}
           >
-            {s}
+            {s.toString().padStart(2, '0')}
           </div>
-          {/* Blue progress fill for the track */}
-          {s < 10 && (
-            <div 
-              className={cn(
-                "absolute top-4 left-8 h-0.5 transition-all duration-500 -z-10",
-                s < currentStep ? "bg-blue-600 w-[calc(100vw/10)]" : "w-0"
-              )}
-              style={{ width: 'clamp(20px, 6vw, 80px)' }}
-            />
+
+          {/* Progress Connector Fill */}
+          {index < steps.length - 1 && (
+            <div className="absolute top-1/2 left-[50%] w-full h-[1px] -z-10 -translate-y-1/2 overflow-hidden">
+              <div 
+                className={cn(
+                  "h-full bg-[#BC9661] transition-all duration-700 ease-in-out",
+                  s < currentStep ? "w-full" : "w-0"
+                )}
+              />
+            </div>
           )}
         </div>
       ))}

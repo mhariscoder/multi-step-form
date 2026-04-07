@@ -1,19 +1,12 @@
 "use client";
 import { useState } from "react";
 import { useFormStore } from "@/store/useFormStore";
-import ResultsStep from "./ResultsStep"; // Ensure this path is correct
+import ResultsStep from "./ResultsStep"; 
 import { 
-  User, 
-  Mail, 
-  MapPin, 
-  Lock, 
   Sparkles, 
-  ArrowLeft, 
-  Send,
   Loader2 
 } from "lucide-react";
 
-// Define the interface for the product
 interface Product {
   id: string;
   title: string;
@@ -44,7 +37,6 @@ export default function StepTen() {
 
   const handleSubmit = async () => {
     setLoading(true);
-
     const payload = {
       coverType: coverType || "Wooden Blind",
       color: "White",
@@ -63,12 +55,9 @@ export default function StepTen() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
       });
-
       if (!response.ok) throw new Error("Failed to fetch recommendations");
-
       const recommendations = await response.json();
-      setResults(recommendations); // Save the results to trigger the UI switch
-
+      setResults(recommendations);
     } catch (error) {
       console.error("Submission Error:", error);
       alert("There was an error generating your results. Please try again.");
@@ -77,102 +66,103 @@ export default function StepTen() {
     }
   };
 
-  // IF WE HAVE RESULTS, SHOW THE RESULTS STEP
   if (results) {
     return <ResultsStep recommendations={results} />;
   }
 
-  // OTHERWISE SHOW THE FORM
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Almost there! Get your personalized results</h1>
-        <p className="text-slate-500 text-lg">
+    <div className="w-full flex flex-col gap-10 animate-in fade-in duration-700">
+      
+      {/* Header Section */}
+      <header className="space-y-3">
+        <h1 className="text-[44px] font-serif text-[#1A1A1A] leading-tight tracking-tight">
+          Almost there! Get your personalized results
+        </h1>
+        <p className="text-[#8E8E8E] text-[16px] font-sans">
           Enter your details to receive your custom window treatment recommendations.
         </p>
-      </div>
+      </header>
 
-      <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-6 flex gap-4">
-        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm shrink-0">
+      {/* AI Consultation Banner */}
+      <div className="bg-[#E5D5BC] rounded-sm p-8 flex items-start gap-6 border-l-4 border-[#BC9661]">
+        <div className="w-12 h-12 bg-[#BC9661] rounded-full flex items-center justify-center text-white shadow-md shrink-0">
           <Sparkles size={24} />
         </div>
-        <div>
-          <h4 className="font-bold text-slate-900">Your AI-Powered Design Consultation</h4>
-          <p className="text-sm text-slate-600 leading-relaxed">
+        <div className="space-y-1">
+          <h4 className="text-[22px] font-serif text-[#1A1A1A]">Your AI-Powered Design Consultation</h4>
+          <p className="text-[15px] text-[#5A5A5A] leading-relaxed font-sans">
             Based on your preferences, our AI will generate personalized window treatment recommendations.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-            <User size={16} /> Your Name <span className="text-red-500">*</span>
-          </label>
-          <input 
-            type="text"
-            placeholder="Enter your name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            disabled={loading}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all disabled:opacity-50"
-          />
+      {/* Form Inputs Grid */}
+      <div className="bg-[#FBF9F6] p-10 rounded-sm space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-3">
+            <input 
+              type="text"
+              placeholder="Full Name"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              disabled={loading}
+              className="w-full px-6 py-4 bg-white border border-[#D1C7B7] text-[#1A1A1A] placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 font-sans"
+            />
+          </div>
+
+          <div className="space-y-3">
+            <input 
+              type="text"
+              placeholder="Zip Code"
+              value={userZip}
+              onChange={(e) => setUserZip(e.target.value)}
+              disabled={loading}
+              className="w-full px-6 py-4 bg-white border border-[#D1C7B7] text-[#1A1A1A] placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 font-sans"
+            />
+          </div>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-            <Mail size={16} /> Email Address <span className="text-red-500">*</span>
-          </label>
+        <div className="relative group">
           <input 
             type="email"
-            placeholder="you@example.com"
+            placeholder="Email Address"
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
             disabled={loading}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all disabled:opacity-50"
-          />
-        </div>
-
-        <div className="space-y-2 md:col-span-1">
-          <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-            <MapPin size={16} /> Zip Code <span className="text-red-500">*</span>
-          </label>
-          <input 
-            type="text"
-            placeholder="12345"
-            value={userZip}
-            onChange={(e) => setUserZip(e.target.value)}
-            disabled={loading}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all disabled:opacity-50"
+            className="w-full px-6 py-4 bg-white border border-[#D1C7B7] text-[#1A1A1A] placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 font-sans"
           />
         </div>
       </div>
 
-      <div className="flex justify-between items-center pt-8 border-t border-slate-100">
+      {/* Footer Navigation */}
+      <div className="flex flex-col md:flex-row gap-4 pt-4 border-t border-[#D1C7B7]/30">
         <button 
           onClick={prevStep} 
           disabled={loading}
-          className="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors disabled:opacity-50"
+          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center disabled:opacity-50"
         >
-          <ArrowLeft size={20} /> Back
+          Back
         </button>
         
         <button 
           onClick={handleSubmit}
           disabled={!isComplete || loading}
-          className={`px-10 py-4 rounded-xl flex items-center gap-2 font-bold transition-all ${
-            isComplete && !loading
-              ? "bg-blue-600 text-white hover:bg-blue-700 shadow-xl shadow-blue-200 active:scale-95" 
-              : "bg-blue-200 text-white cursor-not-allowed"
+          className={`flex-1 py-4 rounded-full text-white text-[16px] font-sans font-semibold transition-all shadow-sm flex items-center justify-center gap-3 ${
+            isComplete && !loading ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
           {loading ? (
             <>Generating... <Loader2 size={18} className="animate-spin" /></>
           ) : (
-            <>Get My Results <Send size={18} /></>
+            "Get My Results"
           )}
         </button>
       </div>
+
+      {/* Security Disclaimer */}
+      <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase">
+        Your info is secure · No spam · We never share your details
+      </p>
     </div>
   );
 }
