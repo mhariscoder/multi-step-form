@@ -75,10 +75,10 @@ export default function StepTen() {
   return (
     <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[48px] font-serif text-[#1A1A1A] leading-[59px]">
+        <h1 className="text-[48px] heading-font text-[#1A1A1A] leading-[59px]">
           Almost there! Get your personalized results
         </h1>
-        <p className="text-[#8E8E8E] text-[20px] leading-[20px] font-sans">
+        <p className="text-[#8E8E8E] text-[20px] leading-[20px] text-font">
           Enter your details to receive your custom window treatment recommendations.
         </p>
       </header>
@@ -102,14 +102,14 @@ export default function StepTen() {
             </svg>
 
           </div>
-          <h4 className="text-[32px] leading-[1.1] font-serif text-[#1A1A1A]">
+          <h4 className="text-[32px] leading-[1.1] heading-font text-[#1A1A1A]">
             Your AI-Powered Design Consultation
           </h4>
         </div>
 
         <div className="">
 
-          <p className="text-[18px] leading-[20px] text-[#000000] font-sans">
+          <p className="text-[18px] leading-[20px] text-[#000000] text-font">
             Based on your preferences, our AI will generate personalized window treatment recommendations.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function StepTen() {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               disabled={loading}
-              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 font-sans"
+              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
             />
           </div>
 
@@ -135,7 +135,7 @@ export default function StepTen() {
               value={userZip}
               onChange={(e) => setUserZip(e.target.value)}
               disabled={loading}
-              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 font-sans"
+              className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function StepTen() {
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
             disabled={loading}
-            className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 font-sans"
+            className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[18px]  placeholder-[#A0A0A0] rounded-sm focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
           />
         </div>
       </div>
@@ -170,7 +170,7 @@ export default function StepTen() {
         <button
           onClick={handleSubmit}
           disabled={!isComplete || loading}
-          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] font-sans transition-all shadow-sm flex items-center justify-center gap-3 ${isComplete && !loading ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
+          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] text-font transition-all shadow-sm flex items-center justify-center gap-3 ${isComplete && !loading ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
             }`}
         >
           {loading ? (
@@ -183,7 +183,7 @@ export default function StepTen() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] font-sans tracking-wide">
+      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
       </p>
     </div>

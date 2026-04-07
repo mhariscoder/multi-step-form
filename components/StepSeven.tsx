@@ -61,10 +61,10 @@ export default function StepSeven() {
   return (
     <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[48px] font-serif text-[#1A1A1A] leading-[59px]">
+        <h1 className="text-[48px] heading-font text-[#1A1A1A] leading-[59px]">
           Which look do you prefer in this room?
         </h1>
-        <p className="text-[#8E8E8E] text-[20px] leading-[20px] font-sans">
+        <p className="text-[#8E8E8E] text-[20px] leading-[20px] text-font">
           The aesthetic of your window treatments sets the tone for the entire space.
         </p>
       </header>
@@ -96,11 +96,11 @@ export default function StepSeven() {
               </div>
 
               <div className={isLastItem ? "flex flex-col" : ""}>
-                <h3 className={`text-[32px] font-serif mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+                <h3 className={`text-[32px] heading-font mb-2 leading-[1.1] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                   {look.title}
                 </h3>
 
-                <p className={`text-[18px] leading-[20px] font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+                <p className={`text-[18px] leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                   {look.desc}
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function StepSeven() {
         <button
           onClick={nextStep}
           disabled={!lookPreference}
-          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] font-sans transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] text-font transition-all shadow-sm ${
             lookPreference ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
@@ -128,7 +128,7 @@ export default function StepSeven() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] font-sans tracking-wide">
+      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
       </p>
     </div>

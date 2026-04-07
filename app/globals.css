@@ -6,23 +6,27 @@
 }
 @font-face {
   font-family: "Span";
-  src: url("/fonts/fonnts.com-Span-.otf") format("opentype");
+  src: url("/fonts/fonnts.com-Span.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans_18pt-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-}
-
+/* @font-face { font-family: "DM Sans"; src: url("/fonts/DMSans_18pt-Black.ttf") format("truetype");
+   font-weight: 400; font-style: normal; } */
 .span-font {
   font-family: "Span", sans-serif;
 }
-
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
 .dm-sans-font {
+  font-family: "DM Sans", sans-serif;
+}
+
+.heading-font {
+  font-family: "Span", sans-serif;
+}
+
+.text-font {
   font-family: "DM Sans", sans-serif;
 }
 

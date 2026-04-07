@@ -41,8 +41,9 @@ export default function MultiStepForm() {
 
   return (
     // Changed bg to #FBF9F6 to match the "Let's Start with Your Room" background
+  <>
+    <Header/>
     <main className="min-h-screen bg-[#FBF9F6] py-12 ">
-      <Header/>
       {/* Removed max-width constraint for true full-width layout */}
       <div className="w-full flex flex-col max-w-[1520px]   mx-auto">
         
@@ -62,5 +63,6 @@ export default function MultiStepForm() {
         Your info is secure · No spam · We never share your details
       </footer>
     </main>
+  </>
   );
 }

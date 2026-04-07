@@ -18,7 +18,7 @@ export const FormStepper = ({ currentStep }: { currentStep: number }) => {
           {/* Increased Circle Size and Font Size */}
           <div
             className={cn(
-              "w-[70px] h-[70px] rounded-full flex items-center justify-center text-[32px] font-serif transition-all duration-500 ",
+              "w-[70px] h-[70px] rounded-full heading-font flex items-center justify-center text-[32px] font-serif transition-all duration-500 ",
               s === currentStep 
                 ? "bg-[#C19A5B] border-[#BC9661] text-white " 
                 : s < currentStep 

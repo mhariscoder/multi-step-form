@@ -3,7 +3,7 @@ import { useFormStore } from "@/store/useFormStore";
 import { LayoutGrid, Square, Columns, Layers, HelpCircle } from "lucide-react";
 
 const OPTIONS = [
-  { id: 'window', title: 'Window', desc: 'Standard windows – casement, double-hung, or picture windows', icon: Square },
+  { id: 'window', title: 'Window', desc: 'Standard windows - casement, double-hung, or picture windows', icon: Square },
   { id: 'sliding', title: 'Sliding Glass Door', desc: 'Patio doors or large sliding glass panels', icon: Columns },
   { id: 'swinging', title: 'Swinging Door', desc: 'French doors or other doors that swing open', icon: LayoutGrid },
   { id: 'both', title: 'Both', desc: 'A mix of windows and sliding doors in the same room', icon: Layers },
@@ -18,10 +18,10 @@ export default function StepTwo() {
       
       {/* Header Section */}
       <header className="space-y-4">
-        <h1 className="text-[48px] font-serif leading-[59px] text-[#18191A] ">
+        <h1 className="text-[48px] heading-font leading-[59px] text-[#18191A] ">
           What are you looking to cover?
         </h1>
-        <p className="text-[#727272] text-[20px] leading-[20px] font-sans">
+        <p className="text-[#727272] text-[20px] leading-[20px] text-font">
           This helps us recommend products that fit your window or door type perfectly.
         </p>
       </header>
@@ -54,7 +54,7 @@ export default function StepTwo() {
         </div>
 
         <h3
-          className={`text-[32px] font-serif mb-2 ${
+          className={`text-[32px] heading-font mb-2 ${
             isSelected ? "text-white" : "text-[#1A1A1A]"
           }`}
         >
@@ -62,7 +62,7 @@ export default function StepTwo() {
         </h3>
 
         <p
-          className={`text-[18px] leading-[20px] font-sans ${
+          className={`text-[18px] leading-[20px] text-font ${
             isSelected ? "text-slate-300" : "text-[#8E8E8E]"
           }`}
         >
@@ -85,7 +85,7 @@ export default function StepTwo() {
         <button 
           onClick={nextStep}
           disabled={!coverType}
-          className={`flex-1 py-4 rounded-full text-white text-[14px]  font-[700] font-sans  transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[14px]  font-[700] text-font  transition-all shadow-sm ${
             coverType ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
@@ -94,8 +94,8 @@ export default function StepTwo() {
       </div>
 
       {/* Security Disclaimer */}
-      <p className="text-center text-[16px] text-[#727272] font-sans tracking-wide">
-        Your info is secure · No spam · We never share your details
+      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
+        Your info is secure | No spam | We never share your details
       </p>
     </div>
   );

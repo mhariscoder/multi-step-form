@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useFormStore } from "@/store/useFormStore";
 import { Lock, Scale, Eye } from "lucide-react";
 
@@ -29,8 +29,8 @@ export default function StepFive() {
   return (
     <div className="w-full flex flex-col md:gap-18 animate-in fade-in duration-700">
       <header className="space-y-4">
-        <h1 className="text-[48px] font-serif text-[#1A1A1A] leading-[59px]">Privacy vs. View</h1>
-        <p className="text-[#8E8E8E] text-[20px] leading-[20px] font-sans">
+        <h1 className="text-[48px] heading-font text-[#1A1A1A] leading-[59px]">Privacy vs. View</h1>
+        <p className="text-[#8E8E8E] text-[20px] leading-[20px] text-font">
           How important is nighttime privacy compared to keeping a daytime view?
         </p>
       </header>
@@ -44,7 +44,7 @@ export default function StepFive() {
             <button
               key={pref.id}
               onClick={() => setPrivacyPreference(pref.id)}
-              className={`flex flex-col items-start p-8 rounded-sm transition-all text-left border min-h-[235px] ${
+              className={`flex flex-col items-start p-8 justify-center rounded-sm transition-all text-left border border min-h-[150px] ${
                 isSelected
                   ? "bg-[#0F172A] border-[#0F172A] text-white shadow-xl z-10"
                   : "bg-[#FBF9F6] border-transparent text-[#1A1A1A] hover:bg-white hover:border-[#D1C7B7]"
@@ -60,12 +60,12 @@ export default function StepFive() {
                 <Icon size={20} />
               </div>
 
-              <h3 className={`text-[32px] font-serif  leading-[59px] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
+              <h3 className={`text-[32px] heading-font  leading-[59px] ${isSelected ? "text-white" : "text-[#1A1A1A]"}`}>
                 {pref.title}
               </h3>
                  
- </div>
-              <p className={`text-[18px] leading-[20px] font-sans ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
+                </div>
+              <p className={`text-[18px] leading-[20px] text-font ${isSelected ? "text-slate-300" : "text-[#8E8E8E]"}`}>
                 {pref.desc}
               </p>
             </button>
@@ -84,7 +84,7 @@ export default function StepFive() {
         <button
           onClick={nextStep}
           disabled={!privacyPreference}
-          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] font-sans transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[14px] font-[700] text-font transition-all shadow-sm ${
             privacyPreference ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
@@ -92,7 +92,7 @@ export default function StepFive() {
         </button>
       </div>
 
-      <p className="text-center text-[16px] text-[#727272] font-sans tracking-wide">
+      <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
       </p>
     </div>

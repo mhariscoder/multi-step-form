@@ -37,17 +37,17 @@ export default function StepThree() {
       
       {/* Header Section */}
       <header className="space-y-4">
-        <h1 className="text-[48px] font-serif text-[#1A1A1A] leading-[59px] ">
+        <h1 className="text-[48px] heading-font text-[#1A1A1A] leading-[59px] ">
           Tell us about this room
         </h1>
-        <p className="text-[#8E8E8E] text-[16px] font-sans">
+        <p className="text-[#8E8E8E] text-[16px] text-font">
           Understanding your space helps us match you with the right products.
         </p>
       </header>
 
       {/* Section 1: Room Type */}
       <div className="space-y-6">
-        <h3 className="text-[32px] font-serif text-[#1A1A1A]">
+        <h3 className="text-[32px] heading-font text-[#1A1A1A]">
           What type of room is this? <span className="text-[#BC9661] ml-1">*</span>
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
@@ -67,7 +67,7 @@ export default function StepThree() {
                 <div className="min-h-[60px]   flex flex-col items-center justify-between">
 
                 <Icon size={20} className={isSelected ? "text-[#BC9661]" : "text-[#BC9661] opacity-70"} />
-                <span className={`text-[20px] font-sans font-medium ${isSelected ? "text-white" : "text-[#727272]"}`}>
+                <span className={`text-[20px] text-font font-medium ${isSelected ? "text-white" : "text-[#727272]"}`}>
                   {item.label}
                 </span>
                 </div>
@@ -79,7 +79,7 @@ export default function StepThree() {
 
       {/* Section 2: Primary Use */}
       <div className="space-y-6">
-        <h3 className="text-[32px] font-serif text-[#1A1A1A]">
+        <h3 className="text-[32px] heading-font text-[#1A1A1A]">
           Primary use of this space? <span className="text-[#BC9661] ml-1">*</span>
         </h3>
      <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
@@ -110,7 +110,7 @@ export default function StepThree() {
 
         <div>
           <h4
-            className={`text-[32px] font-serif mb-1 ${
+            className={`text-[32px] heading-font mb-1 ${
               isSelected ? "text-white" : "text-[#1A1A1A]"
             }`}
           >
@@ -118,7 +118,7 @@ export default function StepThree() {
           </h4>
 
           <p
-            className={`text-[18px] font-sans ${
+            className={`text-[18px] text-font ${
               isSelected ? "text-slate-300" : "text-[#8E8E8E]"
             }`}
           >
@@ -135,7 +135,7 @@ export default function StepThree() {
       <div className="flex flex-col md:flex-row gap-4 pt-4 ">
         <button 
           onClick={prevStep}
-          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] font-sans font-medium hover:bg-white/50 transition-all text-center"
+          className="flex-1 py-4 border border-[#1A1A1A] rounded-full text-[#1A1A1A] text-[14px] text-font font-medium hover:bg-white/50 transition-all text-center"
         >
           Back
         </button>
@@ -143,7 +143,7 @@ export default function StepThree() {
         <button 
           onClick={nextStep}
           disabled={!isComplete}
-          className={`flex-1 py-4 rounded-full text-white text-[16px] font-sans font-semibold transition-all shadow-sm ${
+          className={`flex-1 py-4 rounded-full text-white text-[16px] text-font font-semibold transition-all shadow-sm ${
             isComplete ? "bg-[#BC9661] hover:brightness-105 active:scale-[0.98]" : "bg-[#D1C7B7] cursor-not-allowed"
           }`}
         >
@@ -151,8 +151,8 @@ export default function StepThree() {
         </button>
       </div>
 
-      <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide">
-        Your info is secure · No spam · We never share your details
+      <p className="text-center text-[11px] text-[#A0A0A0] text-font tracking-wide">
+        Your info is secure | No spam | We never share your details
       </p>
     </div>
   );
