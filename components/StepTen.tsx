@@ -71,6 +71,13 @@ export default function StepTen() {
   if (results) {
     return <ResultsStep recommendations={results} />;
   }
+  const infoItems = [
+    "Primary product recommendation with detailed explanation",
+    "Personalized upgrade suggestions (motorization, blackout, etc.)",
+    "2-3 alternative options that also match your needs",
+    "Links to order free samples and explore products",
+
+  ];
 
   return (
     <div className="w-full flex flex-col md:gap-18   gap-10  animate-in fade-in duration-700">
@@ -115,7 +122,7 @@ export default function StepTen() {
         </div>
       </div>
 
-      <div className="bg-[#FBF9F6] p-10  space-y-8">
+      <div className="bg-[#F7F4EF] p-10  space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-3">
             <input
@@ -139,7 +146,7 @@ export default function StepTen() {
             />
           </div>
         </div>
-
+        
         <div className="relative group">
           <div className="absolute right-5 top-[30%]">
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,8 +163,29 @@ export default function StepTen() {
             className="w-full px-6 py-4 bg-[#F3EEE7] md:min-h-[61px] text-[#727272] text-[15px] sm:text-[16px] md:text-[16px] xl:text-[18px] placeholder-[#A0A0A0] focus:border-[#1A1A1A] outline-none transition-all disabled:opacity-50 text-font"
           />
         </div>
-      </div>
 
+      </div>
+      <div className="bg-[#F7F4EF] p-10 flex gap-3 ">
+         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.8333 9.16699H4.16667C3.24619 9.16699 2.5 9.91318 2.5 10.8337V16.667C2.5 17.5875 3.24619 18.3337 4.16667 18.3337H15.8333C16.7538 18.3337 17.5 17.5875 17.5 16.667V10.8337C17.5 9.91318 16.7538 9.16699 15.8333 9.16699Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.83398 9.16699V5.83366C5.83398 4.72859 6.27297 3.66878 7.05437 2.88738C7.83577 2.10598 8.89558 1.66699 10.0007 1.66699C11.1057 1.66699 12.1655 2.10598 12.9469 2.88738C13.7283 3.66878 14.1673 4.72859 14.1673 5.83366V9.16699" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+           <span className="text-[#727272] text-[18px] leading-[20px] ">
+            Your information is secure. We'll email your results and may follow up with helpful design tips. We never share your data with third parties.
+          </span>
+        </div>
+      <div className="bg-[#F7F4EF] p-12  border border-[#F0EDE6]">
+        <h3 className="text-[24px] sm:text-[28px] md:text-[28px] xl:text-[32px] heading-font text-[#1A1A1A] mb-8">What you'll receive:</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-4">
+          {infoItems.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-3 text-[#727272] text-[15px] sm:text-[17px] md:text-[18px] xl:text-[20px] text-font">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#BC9661] flex-shrink-0" />
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="flex flex-col md:flex-row gap-4 pt-4 ">
         <button
           onClick={prevStep}
@@ -182,7 +210,7 @@ export default function StepTen() {
           )}
         </button>
       </div>
-{/* 
+      {/* 
       <p className="text-center text-[16px] text-[#727272] text-font tracking-wide">
         Your info is secure | No spam | We never share your details
       </p> */}
