@@ -70,7 +70,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
             key={product.id} 
             className="flex relative flex-col md:flex-row bg-[#FBF9F6] border border-transparent hover:border-[#D1C7B7]/30 transition-all  "
           >
-            <div className="px-4 absolute h-[34px] w-[144px] -top-5 text-center items-center flex justify-center  right-0  bg-[#18191A] text-white text-[18px] font-bold rounded-full">
+            <div className={`px-4 absolute h-[34px] w-[144px] -top-5 text-center items-center flex justify-center  right-0  ${index === 0 ? "bg-[#bc9661]" : "bg-[#18191A]"} text-white text-[18px] font-bold rounded-full`}>
               {index ==0 ?"Primary":"Alternatives"}
             </div>
             {/* Product Image Section */}
@@ -99,7 +99,7 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
                 href={product.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`w-full rounded-full hover:bg-[#BC9661] items-center flex justify-center h-[48px] hover:text-white bg-white text-[14px] font-sans font-bold text-center transition-all border `}
+                className={`w-full rounded-full bg-[#BC9661] items-center flex justify-center h-[48px] text-white bg-white text-[14px] font-sans font-bold text-center transition-all border `}
               >
                 View Product
               </a>

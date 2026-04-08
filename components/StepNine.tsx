@@ -11,7 +11,7 @@ type QuestionRowProps = {
   icon: LucideIcon;
   title: string;
   options: QuestionOption[];
-  currentValue: void;
+  currentValue: string | null; 
   onSelect: (value: string) => void;
 };
 
