@@ -112,11 +112,6 @@ export default function ResultsStep({ recommendations }: { recommendations: Prod
         >
           Start New Consultation
         </button>
-        
-        {/* Security Footer */}
-        <p className="text-center text-[11px] text-[#A0A0A0] font-sans tracking-wide uppercase mt-4">
-          Your info is secure Â· No spam Â· We never share your details
-        </p>
       </div>
     </div>
   );
